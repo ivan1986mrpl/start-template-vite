@@ -1,7 +1,5 @@
-//@use 'sass:map';// из старого файла вите
-
-//@use "sass:math" as math;
-//@use "varsiables" as global;
+@use "sass:math" as math;
+@use "variables" as global;
 @use "functions" as *;
 
 // Адаптивное свойство (clamp)

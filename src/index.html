@@ -8,45 +8,33 @@
   <title>vite start</title>
 
   <link rel="stylesheet" href="styles/main.scss">
-  <script type="module" src="js/app.js"></script>
+  <script defer type="module" src="js/app.js"></script>
 
 </head>
 
 <body>
   <div class="wrapper">
 
-    <div class="container">
-      <div class="tabcontainer">
-        <div class="tabheader">
-          <ul class="tabheader__items">
-            <li class="tabheader__item tabheader__item_active">title tab № 1</li>
-            <li class="tabheader__item">title tab № 2</li>
-            <li class="tabheader__item">title tab № 3</li>
-            <li class="tabheader__item">title tab № 4</li>
-          </ul>
-        </div>
-        <div class="tabcontent">
-          text tab № 1 <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, sequi tempore iste obcaecati natus
-            animi a molestiae quo iure ea, dolor quasi aut aperiam!
-        </div>
-        <div class="tabcontent">
-          text tab № 2 <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, sequi tempore iste obcaecati natus
-            animi a molestiae quo iure ea, dolor quasi aut aperiam!
-        </div>
-        <div class="tabcontent">
-          text tab № 3 <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, sequi tempore iste obcaecati natus
-            animi a molestiae quo iure ea, dolor quasi aut aperiam!
-        </div>
-        <div class="tabcontent">
-          text tab № 4 <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, sequi tempore iste obcaecati natus
-            animi a molestiae quo iure ea, dolor quasi aut aperiam!
-        </div>
-      </div>
-    </div>
+<header class="header">
+	<div class="header__container">
+		<a href="#" class="header__logo" aria-label="Home" title="Home"><img src="assets/img/logo-min.svg" alt="logo"></a>
+		<div class="header__menu menu">
+			<nav class="menu__body">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="#1" class="menu__link hover-link">ItemMenu 1</a></li>
+					<li class="menu__item"><a href="#2" class="menu__link hover-link">ItemMenu 2</a></li>
+					<li class="menu__item"><a href="#3" class="menu__link hover-link">ItemMenu 3</a></li>
+					<li class="menu__item"><a href="#4" class="menu__link hover-link">ItemMenu 4</a></li>
+					<li class="menu__item"><a href="#5" class="menu__link hover-link">ItemMenu 5</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="header__actions">
+			<a href="#" class="header__button">Button</a>
+			<button type="button" class="icon-menu" aria-label="Open menu" title="Open menu"><span></span></button>
+		</div>
+	</div>
+</header>
     
 
 

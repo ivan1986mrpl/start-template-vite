@@ -1,5 +1,4 @@
 @use "sass:math" as math;
-//@use 'sass:map';// из старого файла вите
 
 @function round-to-decimal($number, $decimal: 2) {
 	$multiplier: pow(10, $decimal);
