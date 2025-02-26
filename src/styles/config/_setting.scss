@@ -1,0 +1,50 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as global;
+
+/*
+* (i) Стили будут применяться ко
+* всем классам содержащим *__container
+* Например header__container, main__container и т.д.
+*/
+[class*="__container"] {
+	margin-inline: auto;
+	max-inline-size: rem(global.$max-width-container);
+	padding-inline: rem(global.$main-offset);
+}
+
+// Стили отзывчивых картинок (IBG)
+.ibg {
+	position: relative;
+
+	img {
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		object-fit: cover;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+
+	&_contain {
+		img {
+			object-fit: contain;
+		}
+	}
+}
+body.lock {
+	//touch-action: none;
+	overflow: hidden;
+}
+// Оболочка
+.wrapper {
+	display: flex;
+	min-block-size: 100%;
+
+	// Поменять на clip - если используется в проекте position: sticky
+	overflow: hidden;
+	flex-direction: column;
+}
+.page {
+	flex: 1 1 auto;
+}
