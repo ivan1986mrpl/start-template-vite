@@ -2,3 +2,5 @@
 - addDate
 - timer-countdown
 - tabs
+- header-burger
+- page-navigation
