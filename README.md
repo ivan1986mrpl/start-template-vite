@@ -1,3 +1,4 @@
 - scrollUp
 - addDate
 - timer-countdown
+- tabs

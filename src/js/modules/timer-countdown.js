@@ -1,4 +1,4 @@
-export function initCountdown(parent, to, timerEndMessage) {
+export default function initCountdown(parent, to, timerEndMessage) {
 
 	let decCache = [], //функция для склонения имен, склонять как 1 день, три дня, пять дней (склонение числительных в javaScript, функция в поиске гугл declOfNum)
 		decCases = [2, 0, 1, 1, 1, 2];
