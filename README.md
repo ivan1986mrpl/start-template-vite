@@ -3,6 +3,7 @@
 - timer-countdown
 - tabs
 - popup
+- spollers
 - header-burger
 - page-navigation
 

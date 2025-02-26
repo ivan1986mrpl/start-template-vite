@@ -1,10 +1,11 @@
- import { _slideDown, _slideUp, _slideToggle } from "./function";
+// import { _slideDown, _slideUp, _slideToggle } from "./function";
  
  import addDate from "./modules/addDate";
  import scrollUp from "./modules/scrollUp";
  import initCountdown from "./modules/timer-countdown";
  import tabs from "./modules/tabs";
  import popup from "./modules/popup";
+ import spollers from "./modules/spollers";
 
  import headerFon from "./modules/headerFon";
  import pageNavigation from "./modules/page-navigation";
@@ -31,6 +32,8 @@ window.addEventListener('DOMContentLoaded', () => {
 // tabs();
 
 // popup();
+
+// spollers();
 
  headerFon();
 

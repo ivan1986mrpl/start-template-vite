@@ -4,12 +4,6 @@
 @use "../config/variables" as global;
 
 .hero {
-    height: 3000px;
     padding-top: 150px;
-    a {
-        display: block;
-        &:not(:last-child) {
-            margin-bottom: 20px;
-        }
-    }
+
 }
