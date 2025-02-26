@@ -1,25 +1,31 @@
+// @use 'functions' as *;
+
 :root {
 	// Семейство шрифта по умолчанию
 	--bs-font-family: "Roboto", sans-serif;
-
+	--ff-primary: 'Roboto', sans-serif;
+	--ff-secondary: 'Anton', sans-serif;
 	// Размер шрифта по умолчанию
-	--bs-font-size: 16px;
+	--f-font-size: 16px;
 
 	// Жирность шрифта по умолчанию
-	--bs-font-weight: 400;
+	--f-font-weight: 400;
 
 	// Базовая высота шрифта
-	--bs-line-height: 1;
+	--f-line-height: 1;
 
 	// Цвет шрифта по умолчанию
 	--main-color: #000;
-	--second-color: #6e6262;
-
-
+	--second-color: #6e6262; 
+	--font-color: #222; 
+	--c-white: #fff;
+	--c-lightgrey: #B2B2B9;
+	--c-dark: #212223;
+	--c-pink: #FF285B;
 
 
 	//===========================
-	--bs-font-color: #222;
+	
 	--bs-transition: 0.3s ease 0s;
 	--bs-radius: 10px;
 	--primary-color: #131313;

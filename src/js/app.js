@@ -4,6 +4,7 @@
  import scrollUp from "./modules/scrollUp";
  import initCountdown from "./modules/timer-countdown";
  import tabs from "./modules/tabs";
+ import popup from "./modules/popup";
 
  import headerFon from "./modules/headerFon";
  import pageNavigation from "./modules/page-navigation";
@@ -28,6 +29,8 @@ window.addEventListener('DOMContentLoaded', () => {
 // initCountdown('.countdown', 86440, 'The timer is over'); // Таймер на 1 день (86400 секунд)
 
 // tabs();
+
+// popup();
 
  headerFon();
 

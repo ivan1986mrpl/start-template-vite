@@ -49,23 +49,29 @@ html {
 		}
 	}
 }
+body.lock {
+	touch-action: none;
+	overflow: hidden;
+}
 
 html,
 body {
 	inline-size: 100%;
 	block-size: 100%;
-	min-inline-size: global.$min-width + px;
+	min-inline-size: 320px;
+	//min-inline-size: global.$min-width + px;
 }
 
 body {
 	overscroll-behavior: none;
-	line-height: 1;
+	line-height: var(--f-line-height);
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
-	font-family: var(--bs-font-family), sans-serif;
-	font-size: var(--bs-font-size);
-	font-weight: var(--bs-font-weight);
-	color: var(--main-color);
+	font-family: var(--ff-primary), sans-serif;
+	font-size: var(--f-font-size);
+	font-weight: var(--f-font-weight);
+	color: var(--c-dark);
+	background-color: var(--c-white);
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }

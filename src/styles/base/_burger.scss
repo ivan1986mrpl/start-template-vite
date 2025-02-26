@@ -4,6 +4,7 @@
 
 $iconMenuColor: #000;//burger button
 //Burger
+/* 
 .icon-menu {
 	display: none;
 	@media (max-width: em(767.98)) {
@@ -56,5 +57,57 @@ $iconMenuColor: #000;//burger button
 			bottom: calc(50% - rem(1));
 			transform: rotate(45deg);
 		}
+	}
+} */
+
+// Burger second version
+.icon-menu {
+	display: none;
+	@media (max-width:em(767.98)){
+		display: block;
+		position: relative;
+		z-index: 5;
+		inline-size: rem(48);
+		block-size: rem(48); 
+		span,
+		&::before,
+		&::after{
+			content:'';
+			position: absolute;
+			block-size: rem(4);
+			border-radius: rem(4);
+			background-color: $iconMenuColor;
+			transition: all 0.3s ease 0s;
+		}
+		&::before,
+		&::after{
+			inline-size: rem(15);
+		}
+		span {
+			inset-inline-start: 50%;
+			inset-block-start: 50%;
+			transform: translate(-50%, -50%);
+			inline-size: rem(28);
+		}
+		&::before{
+			inset-inline-start: rem(10);
+			inset-block-start: rem(14);			
+		}
+		&::after{
+			inset-inline-end: rem(10);
+			inset-block-end: rem(14);			
+		}
+	}
+}
+.icon-menu.menu-open {
+	span {
+		transform: translate(-50%, -50%) rotate(-45deg);
+		inline-size: rem(33);
+	}
+	&::before {
+		transform: translate(0, 1px) rotate(45deg);
+	}
+	&::after {
+		transform: translate(0, -2px) rotate(45deg);
 	}
 }
