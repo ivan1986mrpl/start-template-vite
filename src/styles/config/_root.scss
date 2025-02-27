@@ -1,20 +1,13 @@
-// @use 'functions' as *;
-
+ @use 'functions' as *;
+// --f-font-size: #{rem(16)}; #{rgba(#000, 10%) (если используем функции в css переменных, надо обернуть в #{} , иначе функции не будут работать)
 :root {
-	// Семейство шрифта по умолчанию
 	--bs-font-family: "Roboto", sans-serif;
 	--ff-primary: 'Roboto', sans-serif;
 	--ff-secondary: 'Anton', sans-serif;
-	// Размер шрифта по умолчанию
-	--f-font-size: 16px;
-
-	// Жирность шрифта по умолчанию
+	--f-font-size: #{rem(16)};
 	--f-font-weight: 400;
-
-	// Базовая высота шрифта
 	--f-line-height: 1;
 
-	// Цвет шрифта по умолчанию
 	--main-color: #000;
 	--second-color: #6e6262; 
 	--font-color: #222; 
@@ -23,7 +16,8 @@
 	--c-dark: #212223;
 	--c-pink: #FF285B;
 
-
+	--hover-color: #FF285B;
+	--hover-background: #FF285B;
 	//===========================
 	
 	--bs-transition: 0.3s ease 0s;

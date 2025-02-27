@@ -1,6 +1,7 @@
-// ===== HOVER =====
- 
-/* 
+@use './../config/functions' as *;
+@use './../config/mixins' as *;
+@use './../config/root' as *;
+
 .hover-link {
     position: relative;
     transition: all 0.4s ease 0s;
@@ -12,19 +13,20 @@
         width: 0;
         height: rem(2);
         transition: width 0.3s ease 0s;
-        background-color: $linkHoverBackground;        
+        background-color: var(--hover-background);        
     }
     @media (any-hover: hover){
         &:hover{
-            color: $linkHoverColor;
+            color: var(--hover-color);
         }
         &:hover::after {
             width: 100%;
         }
     }
-} */ 
+}  
 
- /* .hover-scale-filter {
+ /* 
+ .hover-scale-filter {
     img {
         width: 100%;
         height: 100%;
@@ -40,7 +42,8 @@
 }  */
 
  
-/* .hover-btn {
+/* 
+.hover-btn {
     transition: all 0.3s ease 0s;
     @media (any-hover: hover) {
         &:hover {
@@ -50,9 +53,10 @@
 } */ 
 // всплывающие подсказки при наведении
 // если родитель не div, задать display: block;
-// <div class="hover-prompt"><span>описание проекта</span><img src="img/hover/demo.jpg" alt="alt"></div>
+// <div class="hover-prompt"><span>описание проекта</span><img src="assets/img/demo.jpg" alt="alt"></div>
  
-/* .hover-prompt {
+/* 
+.hover-prompt {
     width: 300px;//
     position: relative;
     overflow: hidden;
@@ -82,9 +86,10 @@
     }
 } */ 
 // ========================================
-// <div class="pulse"><img src="img/social-fixed/instagram.svg" alt="button"></div>
- 
-/* .pulse {
+// <div class="pulse"><img src="assets/img/instagram.svg" alt="button"></div> 
+/*
+$pulseColor: var(--c-lightgrey); 
+.pulse {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +98,7 @@
     text-align: center;
     padding: 20px;
     border-radius: 50%;
-    background: $secondColor;
+    background: $pulseColor;
     width: 60px;
     height: 60px;
     img {
@@ -103,7 +108,7 @@
     &::before {
         content: '';
         position: absolute;
-        border: 2px solid $secondColor;
+        border: 2px solid $pulseColor;
         left: -20px;
         opacity: 0;
         right: -20px;

@@ -3,148 +3,140 @@
 @use "variables" as global;
 
 * {
-	margin: 0;
-	border: 0;
-	padding: 0;
-	-webkit-tap-highlight-color: transparent;
-
-	&,
-	&::before,
-	&::after {
-		box-sizing: border-box;
-	}
-
-	&:focus,
-	&:active {
-		outline: none;
-	}
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
 }
-
-nav,
-footer,
-header,
-aside {
-	display: block;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
-
-html {
-	//opacity: 0;
-	scroll-behavior: smooth;
-	//transition: opacity 0.8s ease-in-out;
-
-	&.loaded {
-		//opacity: 1;
-	}
-
-	&.lock {
-		//touch-action: none;
-		//overflow: hidden;
-
-		[data-lp] {
-			//padding-inline-end: var(--bh-scrollbar-width, #{rem(16)});//for function calcScrollbarWidth()
-		}
-
-		.wrapper {
-			//margin-inline-end: var(--bh-scrollbar-width, #{rem(16)});//for function calcScrollbarWidth()
-		}
-	}
+*::before,
+*::after {
+	display: inline-block;
 }
-body.lock {
-	touch-action: none;
-	overflow: hidden;
+:focus,
+:active {
+	// outline: none;
 }
-
+a:focus,
+a:active {
+	// outline: none;
+}
 html,
 body {
 	inline-size: 100%;
-	block-size: 100%;
-	min-inline-size: 320px;
-	//min-inline-size: global.$min-width + px;
+	block-size: 100%;//height: 100%;
+	min-inline-size: 320px;//min-inline-size: global.$min-width + px;	
 }
-
 body {
-	overscroll-behavior: none;
 	line-height: var(--f-line-height);
-	text-rendering: optimizeLegibility;
-	text-size-adjust: 100%;
 	font-family: var(--ff-primary), sans-serif;
 	font-size: var(--f-font-size);
 	font-weight: var(--f-font-weight);
 	color: var(--c-dark);
 	background-color: var(--c-white);
+
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	overscroll-behavior: none;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }
-
 input,
 button,
 textarea {
-	font-family: inherit;
-}
-
-input::-ms-clear {
-	display: none;
-}
-
-input[type="number"] {
-	appearance: textfield;
-
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button {
-		appearance: none;
-	}
-}
-
-button {
+	font-family: var(--ff-primary);
+	font-size: inherit;
+	line-height: inherit;
 	color: inherit;
-	cursor: pointer;
-	user-select: none;
 	background-color: transparent;
-
+}
+button {
+	user-select: none;
 	&::-moz-focus-inner {
 		border: 0;
 		padding: 0;
 	}
 }
-
+input,
+textarea {
+	width: 100%;
+}
+label {
+	display: inline-block;
+}
+button,
+select,
+option {
+	cursor: pointer;
+}
 a {
-	//user-select: none;
 	display: inline-block;
 	color: inherit;
 	text-decoration: none;
-
 	&:hover {
 		text-decoration: none;
 	}
-
 	&:focus,
 	&:active {
 		outline: none;
 	}
-
 	&:visited {
 		text-decoration: none;
 	}
 }
-
 ul, ol {
 	list-style: none;
 }
-
 img {
 	vertical-align: top;
 }
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+	font-weight: inherit;
 	font-size: inherit;
-	font-weight: 400;
 }
-
 sup {
 	color: inherit;
 }
+
+body {//body.lock
+	&.lock {
+		touch-action: none;
+		overflow: hidden;
+	}
+}
+	//padding-inline-start: padding-left;
+	//padding-inline-end: padding-rigth;
+	//padding-block-start: padding-top;
+	//padding-block-end: padding-bottom;
+
+	//inset-inline-start: left;
+	//inset-inline-end: right;
+	//inset-block-start: top;
+	//inset-block-end: bottom;
+	//inset-inline: left right;
+	//inset-block: top bottom;
+
+	//border-inline-start: border-left;
+	//border-inline-end: border-right;
+	//border-block-start: border-top;
+	//border-block-end: border-bottom;
+
+	//text-align: start;left
+	//text-align: end;right
+
+	//direction: rtl;(справа налево)
+	//writing-mode: vertical-lr;(блок по вертикали (слева направо)
+
+	//height: 100%; block-size: 100%; (в медиазапросах используем стандартную height и width)
+	//min-width: 320px; min-inline-size: 320px;

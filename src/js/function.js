@@ -65,6 +65,7 @@ export let _slideToggle = (target, duration = 500) => {
 }
 
 //=============================================================
+//                фикс для popup и position: fixed скачка скролла
 export let bodyLockStatus = true;
 export const lockPadding = document.querySelectorAll('.lock-padding');
 export const body = document.querySelector('body');
