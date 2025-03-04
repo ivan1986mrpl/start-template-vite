@@ -39,9 +39,9 @@ export default function addDate() {
             s = addLeadingZero(t.getSeconds());
 
         if (document.documentElement.lang === 'ru') {
-            return `Дата: ${D} ${M} ${Y} ${h}:${m}:${s} ${d}`;
+            return `Дата: ${D} ${M} ${Y} ${h}:${m}:${s} ${d}`;//Дата:
         } else {
-            return `Date: ${D} ${M} ${Y} ${h}:${m}:${s} ${d}`;
+            return `Date: ${D} ${M} ${Y} ${h}:${m}:${s} ${d}`;//Date: ${d}
         }
     }
 
@@ -53,7 +53,6 @@ export default function addDate() {
     setInterval(updateDate, 1000);
 }
 
-//addDate();
 
 
 

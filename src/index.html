@@ -4,48 +4,34 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>vite start</title>
+	<title>vite</title>
 	<link rel="stylesheet" href="styles/main.scss">
 	<script defer type="module" src="js/app.js"></script>
 </head>
 
 <body>
 	<div class="wrapper">
-		<header class="header lock-padding">
+		<header class="header">
 			<div class="header__container">
-				<a href="#" class="header__logo" aria-label="Home" title="Home"><img src="assets/img/logo-min.svg" alt="Home"></a>
-				<div class="header__menu menu">
-					<nav class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item"><a href="#1" class="menu__link hover-link">ItemMenu 1</a></li>
-							<li class="menu__item"><a href="#2" class="menu__link hover-link">ItemMenu 2</a></li>
-							<li class="menu__item"><a href="#3" class="menu__link hover-link">ItemMenu 3</a></li>
-							<li class="menu__item"><a href="#4" class="menu__link hover-link">ItemMenu 4</a></li>
-							<li class="menu__item"><a href="#5" class="menu__link hover-link">ItemMenu 5</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="header__actions">
-					<a href="#" class="header__button">Button</a>
-					<button type="button" class="icon-menu" aria-label="Open menu"
-						title="Open menu"><span></span></button>
-				</div>
 			</div>
 		</header>
-
 		<main class="page">
-			<section class="page__hero hero">
-				<div class="hero__container">	
-					
+			<section id="hero" class="page__hero hero">
+				<div class="hero__container">
 				</div>
 			</section>
-		</main>
 
-		<footer class="footer">
+		</main>
+		<footer id="footer" class="footer">
 			<div class="footer__container">
-				
 			</div>
 		</footer>
+
+		<div class="scroll-up">
+			<svg class="scroll-up__svg" xmlns="" viewBox="-2 -2 52 52">
+				<path class="scroll-up__path" d="M 24,0 a24,24 0 0,1 0,48 a24,24 0 0,1 0,-48" />
+			</svg>
+		</div>
 
 	</div>
 </body>

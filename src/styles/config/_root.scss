@@ -1,32 +1,33 @@
  @use 'functions' as *;
 // --f-font-size: #{rem(16)}; #{rgba(#000, 10%) (если используем функции в css переменных, надо обернуть в #{} , иначе функции не будут работать)
 :root {
-	--bs-font-family: "Roboto", sans-serif;
+	--font-family: "Roboto", sans-serif;
 	--ff-primary: 'Roboto', sans-serif;
 	--ff-secondary: 'Anton', sans-serif;
-	--f-font-size: #{rem(16)};
+	--f-font-size: #{rem(18)};
+	--f-font-size-mobile: #{rem(16)};
 	--f-font-weight: 400;
 	--f-line-height: 1;
 
-	--main-color: #000;
-	--second-color: #6e6262; 
-	--font-color: #222; 
-	--c-white: #fff;
-	--c-lightgrey: #B2B2B9;
-	--c-dark: #212223;
-	--c-pink: #FF285B;
+	--main-color: var(--c-white);
+	--second-color: var(--c-dark); 
+	--accent-color: var(--c-purple);
+	--hover-color: var(--c-scrollUp);
+	--hover-background: var(--c-scrollUp);
+	--c-scrollUp: #C084FC;
 
-	--hover-color: #FF285B;
-	--hover-background: #FF285B;
-	//===========================
+	--c-white: #FFFFFF;
+	--c-purple: #9333EA;
+	--c-bg-body: #0F172A;
+	--c-lightgrey: #B2B2B9;
+	--c-dark: #0F172A;
+	--c-orange: #c2410c;
+	--c-pink: #FF285B;
+	--c-black: #{rgba(#000, 10%)}; 
 	
-	--bs-transition: 0.3s ease 0s;
-	--bs-radius: 10px;
-	--primary-color: #131313;
-	--primary-hover-color: #2d2d2d;
-	--secondary-color: #ff4040;
-	--white-color: #fff;
-	--black-color: #131313;
-	--bs-shadow: 0px 2px 3px #{rgba(#000, 10%)}, 0px 8px 3px #{rgba(#000, 10%)};
-	--hover-shadow: 0 0 5px 0 #{rgba(#000, 10%)}, 0 0 10px 0 #{rgba(#000, 10%)}, 0 0 15px 0 #{rgba(#000, 10%)};
+	--transition: 0.3s ease 0s;
+	--b-radius: #{rem(10)};
 }
+
+$headerContainerHeigthBig: 144; //для высоты подложки безопасности, чтобы пункты меню не налазили на логотип, а появлялась прокрутка
+$headerContainerHeigthSmall: 60;//для высоты подложки безопасности, чтобы пункты меню не налазили на логотип, а появлялась прокрутка 

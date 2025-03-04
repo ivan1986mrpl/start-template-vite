@@ -35,11 +35,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // spollers();
 
- headerFon();
+ //headerFon();
 
 // pageNavigation();
 
- menuBurger();
+// menuBurger();
+
+
 
 
 

@@ -1,10 +1,13 @@
+@use "sass:math" as math;
+@use './../config/functions' as *;
+@use './../config/mixins' as *;
 $scrollUpMainColor: #dcdcdc;
-$scrollUpAccentColor: orange;
+$scrollUpAccentColor: var(--c-scrollUp);
 .scroll-up {//circle 
     position: fixed;
     right: 3rem;
     bottom: 3rem;
-    z-index: 1000;
+    z-index: 10;
     height: 3rem;
     width: 3rem;
     color: $scrollUpMainColor;
@@ -15,8 +18,12 @@ $scrollUpAccentColor: orange;
     opacity: 0;
     transition: 0.2s;
     transform: translateY(1.6rem);
-    &::before{//arrow up
-        content:'🠕';
+    &::before{//arrow up          
+        content:'';
+        background: url('../assets/img/root/arrow-right.svg') center no-repeat;//белая стрелка
+        transform: rotate(-90deg);
+
+        //content:'🠕';
         position: absolute;
         top: 0;
         left: 0;
@@ -58,9 +65,3 @@ $scrollUpAccentColor: orange;
       <svg class="scroll-up__svg" xmlns="" viewBox="-2 -2 52 52"><path class="scroll-up__path" d="M 24,0 a24,24 0 0,1 0,48 a24,24 0 0,1 0,-48" /></svg>
     </div>
 */
-
-//================================================
-// delete these styles
-.wrapper {
-    height: 3000px;
-}

@@ -31,12 +31,7 @@ body {
 	min-inline-size: 320px;//min-inline-size: global.$min-width + px;	
 }
 body {
-	line-height: var(--f-line-height);
-	font-family: var(--ff-primary), sans-serif;
-	font-size: var(--f-font-size);
-	font-weight: var(--f-font-weight);
-	color: var(--c-dark);
-	background-color: var(--c-white);
+
 
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
@@ -95,6 +90,9 @@ ul, ol {
 }
 img {
 	vertical-align: top;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
 }
 h1,
 h2,
