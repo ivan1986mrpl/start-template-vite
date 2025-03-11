@@ -11,9 +11,6 @@
  import pageNavigation from "./modules/page-navigation";
  import menuBurger from "./modules/menu-burger";
 
-
-
-
 'use strict';
  
 window.addEventListener('DOMContentLoaded', () => {
