@@ -8,16 +8,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "glob": "^11.0.1",
-    "sass": "^1.85.0",
-    "vite": "^6.1.0",
-    "vite-plugin-sass-glob-import": "^5.0.0",
     "autoprefixer": "^10.4.20",
-    "vite-plugin-image-optimizer": "^1.1.8",
+    "glob": "^11.0.1",
+    "postcss-pxtorem": "^6.1.0",
+    "sass": "^1.85.0",
     "sharp": "^0.33.5",
-    "svgo": "^3.3.2"
+    "svgo": "^3.3.2",
+    "vite": "^6.1.0",
+    "vite-plugin-image-optimizer": "^1.1.8",
+    "vite-plugin-sass-glob-import": "^5.0.0"
   },
   "browserslist": [
-		"last 3 versions"
-	]
+    "last 3 versions"
+  ]
 }
