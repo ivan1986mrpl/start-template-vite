@@ -80,3 +80,15 @@ body.lock {
 		}
 	}
 } */
+ /* 
+.gradient-text {
+	background: var(--gradient-color);//можно использовать фото
+	background-clip: text;//обрезка фона, чтобы он соответствовал тексту
+	color: transparent;//делаем текст прозрачным 
+}
+p {
+	&:not(:last-child) {
+		margin-bottom: rem(10);
+	}
+}
+ */
