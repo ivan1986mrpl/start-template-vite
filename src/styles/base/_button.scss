@@ -1,5 +1,5 @@
 @use "sass:math" as math;
-@use './../config/root' as *;
+@use './../config/css-variables' as *;
 @use './../config/functions' as *;
 @use './../config/mixins' as *;
 .button {
