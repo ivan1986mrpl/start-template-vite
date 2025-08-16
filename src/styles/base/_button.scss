@@ -1,7 +1,6 @@
-@use "sass:math" as math;
-@use './../config/css-variables' as *;
 @use './../config/functions' as *;
 @use './../config/mixins' as *;
+
 .button {
     border-radius: rem(8);
     text-align: center;

@@ -1,15 +1,16 @@
-// import { _slideDown, _slideUp, _slideToggle } from "./function";
+//  import { _slideDown, _slideUp, _slideToggle } from "./function";
  
- import addDate from "./modules/addDate";
- import scrollUp from "./modules/scrollUp";
- import initCountdown from "./modules/timer-countdown";
- import tabs from "./modules/tabs";
- import popup from "./modules/popup";
- import spollers from "./modules/spollers";
+//  import addDate from "./modules/addDate";
+//  import scrollUp from "./modules/scrollUp";
+//  import initCountdown from "./modules/timer-countdown";
+//  import tabs from "./modules/tabs";
+//  import popup from "./modules/popup";
+//  import spollers from "./modules/spollers";
+//  import sliderComparisonImages from "./modules/sliderComparisonImages";
 
- import headerFon from "./modules/headerFon";
- import pageNavigation from "./modules/page-navigation";
- import menuBurger from "./modules/menu-burger";
+//  import headerFon from "./modules/headerFon";
+//  import pageNavigation from "./modules/page-navigation";
+//  import menuBurger from "./modules/menu-burger";
 
 'use strict';
  
@@ -27,28 +28,12 @@ window.addEventListener('DOMContentLoaded', () => {
 // initCountdown('.countdown', 86440, 'The timer is over'); // Таймер на 1 день (86400 секунд)
 
 // tabs();
-
 // popup();
-
 // spollers();
-
- //headerFon();
-
+// headerFon();
 // pageNavigation();
-
 // menuBurger();
-
-
-
-
-
-
-
-
-
-
-
-
+// sliderComparisonImages();
 
 
 
