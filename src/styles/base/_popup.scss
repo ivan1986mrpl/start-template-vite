@@ -60,11 +60,11 @@
     &__text {
     }
 }
-.popup.open {//.popup:target
+.popup.open {
     opacity: 1;
     visibility: visible;
 }
-.popup.open .popup__content{//.popup:target .popup__content
+.popup.open .popup__content{
     transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
     //transform: scale(1);
     opacity: 1;
@@ -77,20 +77,6 @@
     <div class="popup__body">
         <div class="popup__content">
             <a href="#header" type="button" class="popup__close close-popup">X</a>
-            <h3 class="popup__title">title popup 1</h3>
-            <div class="popup__text">
-                <a href="#popup2" class="popup-link">open popup 2</a> <br>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="image" class="popup">
-    <div class="popup__body">
-        <div class="popup__content popup__content-image">
-            <a href="#header" type="button" class="popup__close close-popup">X</a>
-            <div class="popup__image">
-                <img src="assets/img/test-Image/1.png" alt="Image">
-            </div>
         </div>
     </div>
 </div>

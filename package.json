@@ -18,6 +18,9 @@
     "vite-plugin-image-optimizer": "1.1.8",
     "vite-plugin-sass-glob-import": "5.0.0"
   },
+  "dependencies": {
+    "swiper": "11.2.10"
+  },
   "browserslist": [
     "last 2 versions"
   ]
