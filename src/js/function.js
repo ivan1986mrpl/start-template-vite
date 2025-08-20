@@ -93,11 +93,11 @@ export function bodyUnlock(delay = 500) {
             for (let i = 0; i < lockPadding.length; i++) {
                 const el = lockPadding[i];
                 el.style.paddingRight = '0px';
-            }
-        }
-        body.style.paddingRight = '0px';
-        body.classList.remove('lock');
-    }, delay);
+						}
+				}
+				body.style.paddingRight = '0px';
+				body.classList.remove('lock');
+		}, delay);
 
     bodyLockStatus = false;
     setTimeout(function() {
