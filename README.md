@@ -42,5 +42,3 @@
 
 - npm run lint
 - npm run lint:fix
-
-- "@babel/plugin-syntax-jsx": "7.27.1",
