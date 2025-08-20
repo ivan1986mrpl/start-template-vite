@@ -22,10 +22,10 @@ export default defineConfig({
         quality: 70,
       },
       jpeg: {
-        quality: 40,
+        quality: 70,
       },
       jpg: {
-        quality: 40,
+        quality: 70,
       },
       webp: {
         quality: 85,

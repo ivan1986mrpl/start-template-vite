@@ -1,7 +1,7 @@
 @use './../config/functions' as *;
 @use './../config/mixins' as *;
 $scrollUpMainColor: #dcdcdc;
-$scrollUpAccentColor: var(--c-scrollUp);
+$scrollUpAccentColor: var(--c-scroll-up);
 
 .scroll-up {
   // circle
