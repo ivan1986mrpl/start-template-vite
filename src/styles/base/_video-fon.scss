@@ -3,13 +3,14 @@
 
 .hero {
   position: relative; // задать секции, на которой висит видео
-  background-color: #000;
-  overflow: hidden;//надо задать если есть радиусы у самой секции
+  overflow: hidden;
+  background-color: #000000; // надо задать если есть радиусы у самой секции
   &__container {
     position: relative;
     z-index: 2;
   }
 }
+
 .video-bacground {
   position: absolute;
   top: 0;
@@ -30,4 +31,4 @@
   </video>
 </section> */
 
-/* pexels.com = download video*/
+/* pexels.com = download video */

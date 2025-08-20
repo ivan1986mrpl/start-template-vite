@@ -6,11 +6,12 @@
   --social-color: #bca2a2;
   --social-hover-color: rgb(117, 117, 64);
 }
+
 .social {
   &__list {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     gap: 25px;
   }
 
@@ -18,31 +19,38 @@
     position: relative;
     width: 48px;
     height: 48px;
+    color: var(
+      --social-color
+    ); // начальный цвет иконки и текста внутри (currentColor)
+
     border: 1px solid var(--social-border);
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    color: var(--social-color); // начальный цвет иконки и текста внутри (currentColor)
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease;
+
     svg {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: 24px;
       height: 24px;
-      fill: currentColor; // цвет иконки берётся из color родителя
       transition: fill 0.3s ease;
+      transform: translate(-50%, -50%);
+      fill: currentColor; // цвет иконки берётся из color родителя
     }
+
     @media (any-hover: hover) {
       &:hover {
-        transform: scale(1.06);
-        border-color: var(--social-hover-color);
         color: var(--social-hover-color); // меняем цвет иконки при ховере
+        border-color: var(--social-hover-color);
+        transform: scale(1.06);
       }
     }
   }
 }
-
 
 /* 
 можно изменять цвет заливки svg

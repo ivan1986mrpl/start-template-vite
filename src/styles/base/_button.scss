@@ -2,22 +2,20 @@
 @use './../config/mixins' as *;
 
 .button {
-    border-radius: rem(8);
-    text-align: center;
-    padding-block: rem(16);
-    padding-inline: rem(40);
+  padding-block: rem(16);
+  padding-inline: rem(40);
+  font-size: rem(20);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--c-white);
+  background-color: var(--c-dark);
+  border-radius: rem(8);
+  transition: all 0.3s;
 
-    font-weight: 500;
-    font-size: rem(20);
-    line-height: 1.2;
-    letter-spacing: 0.03em;
-    background-color: var(--c-dark);
-    color: var(--c-white);
-    
-    transition: all 0.3s;
-    @media (any-hover: hover){
-        &:hover{
-        }
-    }   
+  @media (any-hover: hover) {
+    &:hover {
+    }
+  }
 }
-

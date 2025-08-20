@@ -26,7 +26,8 @@
     }
 } */
 
-//===================
+// ===================
+
 /* 
 .hover-link2 {
     //font-size: 17px;
@@ -69,7 +70,6 @@
     transition-delay: 0.4s;
     color: var(--accent-color);
 } */
-  
 
 /* 
 .hover-img {
@@ -85,7 +85,7 @@
     }
 } */
 
- /* 
+/* 
  .hover-scale-filter {
     img {
         width: 100%;
@@ -100,7 +100,7 @@
         }
     }
 }  */
- 
+
 /* 
 .hover-btn {
     transition: all 0.3s ease 0s;
@@ -109,11 +109,11 @@
             transform: scale(1.06);
         }
     }
-} */ 
+} */
 // всплывающие подсказки при наведении
 // если родитель не div, задать display: block;
 // <div class="hover-prompt"><span>описание проекта</span><img src="assets/img/demo.jpg" alt="alt"></div>
- 
+
 /* 
 .hover-prompt {
     width: 300px;//
@@ -143,9 +143,10 @@
             transform: scale(1) rotate(0);
         }
     }
-} */ 
+} */
 // ========================================
-// <div class="pulse"><img src="assets/img/instagram.svg" alt="button"></div> 
+// <div class="pulse"><img src="assets/img/instagram.svg" alt="button"></div>
+
 /* 
 $pulseColor: var(--hover-color); 
 .pulse {
@@ -196,6 +197,7 @@ $pulseColor: var(--hover-color);
     }
 }   */
 // ====================================
+
 /* 
 .border-decor {
     position: relative;
