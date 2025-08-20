@@ -26,8 +26,21 @@
 
 работа со сборкой
 
-- npm install
+- npm i
 - npm run dev
 - npm run build
 - npm run preview
+
+- npm run lint:js
+- npm run lint:js:fix
+
+- npm run lint:css
+- npm run lint:css:fix
+
+- npm run format
+- npm run format:fix
+
+- npm run lint
 - npm run lint:fix
+
+- "@babel/plugin-syntax-jsx": "7.27.1",
