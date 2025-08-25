@@ -1,47 +1,9 @@
-@use 'functions' as *;
-@use 'mixins' as *;
-@use 'variables' as global;
-@use 'css-variables' as *;
-
-body {
-  font-family: var(--font-family), sans-serif;
-  font-size: var(--f-font-size);
-  font-weight: var(--f-font-weight);
-  line-height: var(--f-line-height);
-  color: var(--main-color);
-  background-color: var(--c-bg-body);
-
-  @media (max-width: em(767.98)) {
-    font-size: var(--f-font-size-mobile);
-  }
-}
-
-body.lock {
-  // touch-action: none;
-  overflow: hidden;
-}
-
-.wrapper {
-  // overflow: clip;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%; // min-block-size: 100%; Поменять на clip - если используется в проекте position: sticky
-}
-
-.page {
-  flex: 1 1 auto;
-}
-
-[class*='__container'] {
-  margin-inline: auto;
-  max-inline-size: rem(global.$max-width-container);
-  padding-inline: rem(global.$main-offset);
-}
+@use 'helpers/function' as *;
+@use 'helpers/mixins' as *;
 
 .ibg {
   position: relative;
-  aspect-ratio: 4 / 3; // удалить здесь и задавать каждому отдельному изображению
+  //  aspect-ratio: 4 / 3; // удалить здесь и задавать каждому отдельному изображению
   img {
     position: absolute;
     top: 0;
@@ -49,12 +11,6 @@ body.lock {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  &_contain {
-    img {
-      object-fit: contain;
-    }
   }
 }
 
@@ -64,7 +20,6 @@ body.lock {
 	overflow: hidden;
 	height: 0;
 	aspect-ratio: 4 / 3;//удалить здесь и задавать каждому отдельному изображению
-	//padding-bottom: 56.25%;
 	video,
 	iframe,
 	object,
@@ -79,6 +34,7 @@ body.lock {
 
 /*  
 .gradient-text {
+  --gradient-color: #999;
 	background: var(--gradient-color);//можно использовать фото
 	background-clip: text;//обрезка фона, чтобы он соответствовал тексту
 	color: transparent;//делаем текст прозрачным 

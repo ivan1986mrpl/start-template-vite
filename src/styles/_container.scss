@@ -1,3 +1,5 @@
+@use 'helpers/function' as *;
+
 // отступы безопасности для контейнера
 $main-offset: 15;
 
@@ -21,3 +23,9 @@ $pc: em($container-width);
 $tablet: em(991.98);
 $mobile: em(767.98);
 $mobileSmall: em(479.98);
+
+[class*='__container'] {
+  margin-inline: auto;
+  max-inline-size: rem($max-width-container);
+  padding-inline: rem($main-offset);
+}

@@ -69,8 +69,7 @@ export let bodyLockStatus = true;
 export const lockPadding = document.querySelectorAll('.lock-padding');
 export const body = document.querySelector('body');
 export function bodyLock(delay = 500) {
-  const lockPaddingValue =
-    window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+  const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 
   if (lockPadding.length > 0) {
     for (let i = 0; i < lockPadding.length; i++) {

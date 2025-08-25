@@ -1,13 +1,11 @@
-@use './../config/functions' as *;
-@use './../config/mixins' as *;
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+// @use '../variables';
 
-:root {
+.social {
   --social-border: #666666;
   --social-color: #bca2a2;
   --social-hover-color: rgb(117, 117, 64);
-}
-
-.social {
   &__list {
     display: flex;
     flex-wrap: wrap;

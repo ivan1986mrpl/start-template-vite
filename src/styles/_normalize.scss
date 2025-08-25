@@ -1,6 +1,5 @@
-// @use "functions" as *;
-// @use "mixins" as *;
-@use 'variables' as global;
+@use 'helpers/function' as *;
+@use 'helpers/mixins' as *;
 
 * {
   margin: 0;
@@ -19,23 +18,12 @@
   display: inline-block;
 }
 
-:focus,
-:active {
-  // outline: none;
-}
-
-a:focus,
-a:active {
-  // outline: none;
-}
-
 html,
 body {
   inline-size: 100%;
   block-size: 100%; // height: 100%;
   min-inline-size: 320px; // min-inline-size: global.$min-width + px;
 }
-
 body {
   overscroll-behavior: none;
   text-rendering: optimizelegibility;
@@ -47,7 +35,7 @@ body {
 input,
 button,
 textarea {
-  font-family: var(--ff-primary);
+  font-family: var(--font-family-base);
   font-size: inherit;
   line-height: inherit;
   color: inherit;
@@ -123,12 +111,14 @@ sup {
   color: inherit;
 }
 
-body {
-  // body.lock
-  &.lock {
-    touch-action: none;
-    overflow: hidden;
-  }
+:focus,
+:active {
+  // outline: none;
+}
+
+a:focus,
+a:active {
+  // outline: none;
 }
 
 // padding-inline-start: padding-left;

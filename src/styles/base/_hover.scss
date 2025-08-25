@@ -1,6 +1,6 @@
-@use './../config/functions' as *;
-@use './../config/mixins' as *;
-@use './../config/css-variables' as *;
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+// @use '../variables';
 
 /* 
 .hover-link {

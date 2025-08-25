@@ -1,5 +1,6 @@
-@use './../config/functions' as *;
-@use './../config/mixins' as *;
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+// @use '../variables';
 $scrollUpMainColor: #dcdcdc;
 $scrollUpAccentColor: var(--c-scroll-up);
 

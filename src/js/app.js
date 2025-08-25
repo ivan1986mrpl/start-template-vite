@@ -1,5 +1,4 @@
-//  import { _slideDown, _slideUp, _slideToggle } from "./function";
-
+'use strict';
 //  import addDate from "./modules/addDate";
 //  import scrollUp from "./modules/scrollUp";
 //  import initCountdown from "./modules/timer-countdown";
@@ -11,8 +10,6 @@
 //  import headerFon from "./modules/headerFon";
 //  import pageNavigation from "./modules/page-navigation";
 //  import menuBurger from "./modules/menu-burger";
-
-'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
   // getting today's date and displaying it on a page in Russian or English (HTML and JavaScript) <div class="date"></div>

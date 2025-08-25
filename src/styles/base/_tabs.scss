@@ -1,8 +1,6 @@
-.tabcontainer {
-}
-
-.tabcontent {
-}
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+// @use '../variables';
 
 .tabheader {
   &__items {

@@ -1,6 +1,6 @@
-@use './../config/functions' as *;
-@use './../config/mixins' as *;
-
+@use '../helpers/function' as *;
+@use '../helpers/mixins' as *;
+// @use '../variables';
 .button {
   padding-block: rem(16);
   padding-inline: rem(40);
@@ -9,8 +9,8 @@
   line-height: 1.2;
   letter-spacing: 0.03em;
   text-align: center;
-  color: var(--c-white);
-  background-color: var(--c-dark);
+  color: var(--color-white);
+  background-color: var(--color-dark);
   border-radius: rem(8);
   transition: all 0.3s;
 
