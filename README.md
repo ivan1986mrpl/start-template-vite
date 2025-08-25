@@ -42,3 +42,5 @@
 
 - npm run lint
 - npm run lint:fix
+
+- add work version linter
