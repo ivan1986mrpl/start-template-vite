@@ -6,7 +6,7 @@ export default function sliderComparisonImages() {
     const imgBefore = document.querySelector('.slider-comparison__img--before');
     const circle = document.querySelector('.slider-comparison__circle');
     const lineBottom = document.querySelector(
-      '.slider-comparison__line-bottom'
+      '.slider-comparison__line-bottom',
     );
     const lineTop = document.querySelector('.slider-comparison__line-top');
 

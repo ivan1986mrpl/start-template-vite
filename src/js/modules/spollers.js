@@ -13,7 +13,7 @@ export default function spollers() {
     const spollersRegular = Array.from(spollersArray).filter(
       function (item, index, self) {
         return !item.dataset.spollers.split(',')[0];
-      }
+      },
     );
     // Инициализация обычных слойлеров
     if (spollersRegular.length > 0) {
@@ -24,7 +24,7 @@ export default function spollers() {
     const spollersMedia = Array.from(spollersArray).filter(
       function (item, index, self) {
         return item.dataset.spollers.split(',')[0];
-      }
+      },
     );
 
     // Инициализация слойлеров с медиа запросами
@@ -131,7 +131,7 @@ export default function spollers() {
     }
     function hideSpollersBody(spollersBlock) {
       const spollerActiveTitle = spollersBlock.querySelector(
-        '[data-spoller].active'
+        '[data-spoller].active',
       );
       if (spollerActiveTitle) {
         spollerActiveTitle.classList.remove('active');

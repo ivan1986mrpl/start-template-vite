@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 export default function sliderWelcome() {
   //museum louvre welcome-slider (слайдер с навигацией, пагинацией и счетчиком)
   const totalSlides = document.querySelectorAll(
-    '.slider-welcome__slide'
+    '.slider-welcome__slide',
   ).length;
 
   function updateCounter(currentIndex) {

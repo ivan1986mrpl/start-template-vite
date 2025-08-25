@@ -1,9 +1,7 @@
+import js from '@eslint/js';
 import globals from 'globals';
 import { defineConfig } from 'eslint/config';
-
 import prettierPlugin from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
-import babelParser from '@babel/eslint-parser';
 
 const ignores = [
   '**/node_modules/**',
@@ -16,41 +14,29 @@ const ignores = [
   '**/.idea/**',
   '**/.vscode/**',
   '**/.DS_Store',
+  'postcss.config.js',
+  'vite.config.js',
 ];
 
 export default defineConfig([
   {
-    files: ['**/*.js'],
+    files: ['**/*.{js,mjs,cjs}'],
     ignores,
-    languageOptions: {
-      parser: babelParser,
-      parserOptions: {
-        requireConfigFile: false,
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-      globals: globals.browser,
-    },
     plugins: {
+      js,
       prettier: prettierPlugin,
     },
+    languageOptions: {
+      globals: globals.browser,
+    },
     rules: {
-      ...prettierConfig.rules,
+      ...js.configs.recommended.rules,
       'prettier/prettier': 'error',
       'no-console': 'warn',
       eqeqeq: 'warn',
       curly: 'warn',
       'no-else-return': 'warn',
-      'comma-dangle': [
-        'error',
-        {
-          arrays: 'always-multiline',
-          objects: 'always-multiline',
-          imports: 'always-multiline',
-          exports: 'always-multiline',
-          functions: 'never',
-        },
-      ],
+      'no-unused-vars': 'warn',
     },
   },
 ]);
