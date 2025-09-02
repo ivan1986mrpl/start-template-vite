@@ -1,6 +1,4 @@
-@use '../helpers/function' as *;
-@use '../helpers/mixins' as *;
-// @use '../variables';
+@use '../helpers' as *;
 
 .gallery {
   overflow-y: hidden;

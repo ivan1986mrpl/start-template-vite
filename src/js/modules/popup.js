@@ -6,34 +6,62 @@ import {
   bodyLockStatus,
 } from '../function';
 
+// Загрузка звука для открытия попапа
+const popupOpenSound = new Audio('assets/audio/modal.mp3'); // путь к звуку
+
+// Громкость звука от 0 до 1 (0 — без звука, 1 — максимальная громкость)
+const volume = 0.4;
+
+const playSound = (sound) => {
+  sound.volume = volume;
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
+};
+
 export default function popup() {
-  const popupLinks = document.querySelectorAll('.popup-link');
-  //const body = document.querySelector('body');
-  //const lockPadding = document.querySelectorAll('.lock-padding');
-
-  if (popupLinks.length > 0) {
-    for (let index = 0; index < popupLinks.length; index++) {
-      const popupLink = popupLinks[index];
-      popupLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        const popupName = popupLink.getAttribute('href').replace('#', ''); //убираем хеш и получаем чистое имя
-        const currentPopup = document.getElementById(popupName);
-        popupOpen(currentPopup);
-      });
+  // Делегирование кликов по всему body
+  document.body.addEventListener('click', (e) => {
+    // Открытие попапа по клику на .popup-link
+    const popupLink = e.target.closest('.popup-link');
+    if (popupLink) {
+      e.preventDefault();
+      const popupName = popupLink.getAttribute('href').replace('#', '');
+      const currentPopup = document.getElementById(popupName);
+      popupOpen(currentPopup);
+      return; // чтобы дальше не искать close-popup при клике по popup-link
     }
-  }
 
-  const popupCloseIcon = document.querySelectorAll('.close-popup');
-  if (popupCloseIcon.length > 0) {
-    for (let index = 0; index < popupCloseIcon.length; index++) {
-      const el = popupCloseIcon[index];
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        //popupCloseIcon(el.closest('.popup'));
-        popupClose(el.closest('.popup')); //закрываем ближайшего родителя кнопки close-popup
-      });
+    // Закрытие попапа по клику на кнопку закрытия
+    const closeBtn = e.target.closest('.close-popup');
+    if (closeBtn) {
+      e.preventDefault();
+      const popup = closeBtn.closest('.popup');
+      popupClose(popup);
+      return;
     }
-  }
+  });
+
+  // Делегирование клика по затемнённой области модального окна
+  document.body.addEventListener('click', (e) => {
+    const openPopup = document.querySelector('.popup.open');
+    if (
+      openPopup &&
+      !e.target.closest('.popup__content') &&
+      e.target.closest('.popup')
+    ) {
+      popupClose(openPopup);
+    }
+  });
+
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Escape') {
+      const popupActive = document.querySelector('.popup.open');
+      if (popupActive) {
+        popupClose(popupActive);
+      }
+    }
+  });
 
   function popupOpen(currentPopup) {
     if (currentPopup && bodyLockStatus) {
@@ -44,29 +72,16 @@ export default function popup() {
         bodyLock();
       }
       currentPopup.classList.add('open');
-      currentPopup.addEventListener('click', (e) => {
-        if (!e.target.closest('.popup__content')) {
-          //все, кроме темной области (если нет в родителях popup__content)
-          popupClose(e.target.closest('.popup'));
-        }
-      });
+      playSound(popupOpenSound); // Воспроизведение звука при открытии
     }
   }
 
   function popupClose(popupActive, doUnlock = true) {
-    //doUnlock = true === чтобы не рахблокировался скролл, если открываем попап сразу после другого попапа
-    if (bodyLockStatus) {
+    if (popupActive && bodyLockStatus) {
       popupActive.classList.remove('open');
       if (doUnlock) {
         bodyUnlock();
       }
     }
   }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.code === 'Escape') {
-      const popupActive = document.querySelector('.popup.open');
-      popupClose(popupActive);
-    }
-  });
 }

@@ -1,13 +1,6 @@
-В сборку добавлены модули:
+- https://github.com/rolling-scopes-school/tasks/blob/master/tasks/christmas-shop/christmas-shop.md
 
-- scrollUp
-- addDate
-- timer-countdown
-- tabs
-- popup
-- spollers
-- header-burger
-- page-navigation
+- https://www.figma.com/design/zTB01BwWZVoXYK5atH3eZT/Christmas-Shop?node-id=0-1&p=f
 
 Требования к именам коммитов
 
@@ -42,3 +35,19 @@
 
 - npm run lint
 - npm run lint:fix
+
+- git fetch --all --prune
+
+for branch in $(git for-each-ref --format='%(refname:short)' refs/heads/); do
+  echo "� Обновление ветки: $branch"
+  git checkout "$branch" || continue
+
+# Проверка, существует ли ветка на origin
+
+if git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    git branch --set-upstream-to=origin/$branch "$branch"
+    git pull
+  else
+    echo "⚠️  У ветки '$branch' нет соответствующей ветки на origin."
+fi
+done

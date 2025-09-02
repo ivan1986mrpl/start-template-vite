@@ -1,39 +1,71 @@
-export default function scrollUp() {
-  const offset = 100,
-    scrollUp = document.querySelector('.scroll-up'),
-    scrollUpSvgPath = document.querySelector('.scroll-up__path'),
-    pathLength = scrollUpSvgPath.getTotalLength();
+export default function scrollUp({
+  offset = 300,
+  maxWidth = 1600,
+  scrollUpSelector = '.scroll-up',
+  scrollUpPathSelector = '.scroll-up__path',
+} = {}) {
+  const scrollUp = document.querySelector(scrollUpSelector);
+  const scrollUpSvgPath = document.querySelector(scrollUpPathSelector);
+
+  if (!scrollUp || !scrollUpSvgPath) {
+    return;
+  }
+
+  const pathLength = scrollUpSvgPath.getTotalLength();
 
   scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
   scrollUpSvgPath.style.transition = 'stroke-dashoffset 20ms';
 
-  const getTop = () => window.scrollY || document.documentElement.scrollTop; //считает количество пикселей от верха
+  const getTop = () => window.scrollY || document.documentElement.scrollTop;
 
-  //просчитывает заливку svg (по мере скролла заливается больший процент иконки)
   const updateDashOffset = () => {
-    const height = document.documentElement.scrollHeight - window.innerHeight; //разница между высотой скролла и высотой окна
+    const height = document.documentElement.scrollHeight - window.innerHeight;
     const dashOffset = pathLength - (getTop() * pathLength) / height;
     scrollUpSvgPath.style.strokeDashoffset = dashOffset;
   };
 
-  //on scroll (отвечает за появление кнопки на странице)
-  window.addEventListener('scroll', () => {
+  const toggleVisibility = () => {
+    const scrolled = getTop();
+    const width = window.innerWidth;
+
     updateDashOffset();
 
-    if (getTop() > offset) {
+    if (scrolled > offset && width <= maxWidth) {
       scrollUp.classList.add('scroll-up--active');
     } else {
       scrollUp.classList.remove('scroll-up--active');
     }
-  });
+  };
 
-  //нажатие на кнопку и плавный скролл вверх
+  window.addEventListener('scroll', toggleVisibility);
+  window.addEventListener('resize', toggleVisibility);
+
   scrollUp.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   });
+
+  // Инициализация состояния кнопки при загрузке
+  toggleVisibility();
 }
 
-// scrollUp();
+/* 
+// Вызов с параметрами по умолчанию (offset=300px, maxWidth=1600px)
+scrollUp();
+
+// Вызов с кастомными значениями
+scrollUp({
+  offset: 200,      // Кнопка появится после прокрутки 200px
+  maxWidth: 1024,   // Кнопка будет видна на экранах шириной до 1024px
+});
+
+// Вызов с кастомными селекторами, если у тебя в разметке класс отличается
+scrollUp({
+  scrollUpSelector: '.my-scroll-up-btn',
+  scrollUpPathSelector: '.my-scroll-up-path',
+  offset: 350,
+  maxWidth: 600,
+});
+*/

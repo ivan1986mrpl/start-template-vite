@@ -1,9 +1,8 @@
-@use '../helpers/function' as *;
-@use '../helpers/mixins' as *;
-// @use '../variables';
+@use '../helpers' as *;
 
 .slider-comparison {
   --c-slider-comparison: #ffffff;
+
   position: relative;
   overflow: hidden;
   aspect-ratio: 720 / 700; // первая ширина, вторая высота (надо задать, чтобы не плющило высоту)

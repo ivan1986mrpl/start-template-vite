@@ -1,52 +1,50 @@
-@use '../helpers/function' as *;
-@use '../helpers/mixins' as *;
-// @use '../variables';
+@use '../helpers' as *;
 
-.timer {
-  margin: 0 auto;
+// .timer {
+//   margin: 0 auto;
 
-  // width: rem(315);
-  @media (max-width: em(410)) {
-    width: 100%;
-  }
+//   width: rem(315);
+//   @media (max-width: em(410)) {
+//     width: 100%;
+//   }
 
-  &__title {
-    font-size: rem(26);
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
+//   &__title {
+//     font-size: rem(26);
+//     font-weight: 500;
+//     text-align: center;
+//     text-transform: uppercase;
 
-    &:not(:last-child) {
-      margin-bottom: rem(25);
-    }
-  }
-}
+//     &:not(:last-child) {
+//       margin-bottom: rem(25);
+//     }
+//   }
+// }
 
-.countdown {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: rem(8);
-  text-align: center;
-  border-radius: rem(10);
-  box-shadow: 0 0 rem(50) rem(16) rgba(0, 0, 0, 0.4);
-
-  @media (max-width: em(410)) {
-    padding: rem(3);
-  }
-}
-
-.num {
-  &:not(:last-child) {
-    margin-bottom: rem(10);
-  }
-}
+// .num {
+//   &:not(:last-child) {
+//     margin-bottom: rem(10);
+//   }
+// }
 
 .name {
   display: block;
   min-width: rem(75);
   text-align: center;
 }
+
+// .countdown {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: rem(8);
+//   text-align: center;
+//   border-radius: rem(10);
+//   box-shadow: 0 0 rem(50) rem(16) rgba(0, 0, 0, 0.4);
+
+//   @media (max-width: em(410)) {
+//     padding: rem(3);
+//   }
+// }
 
 /*
 Добавьте разметку в HTML:

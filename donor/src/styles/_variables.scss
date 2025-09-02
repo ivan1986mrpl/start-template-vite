@@ -1,0 +1,30 @@
+@use 'helpers/function' as *;
+
+// --f-font-size: #{rem(16)}; #{rgba(#000, 10%) (если используем функции в css переменных, надо обернуть в #{} , иначе функции не будут работать)
+:root {
+  --font-family-base: 'Roboto', sans-serif;
+  --font-family: 'Roboto', sans-serif;
+  --second-family: 'Anton', sans-serif;
+  --font-size: #{rem(18)};
+  --font-size-mobile: #{rem(16)};
+  --font-weight: 400;
+  --line-height: 1;
+
+  --main-color: var(--color-white);
+  --second-color: var(--color-dark);
+  --accent-color: var(--color-purple);
+  --hover-color: var(--c-scroll-up);
+  --hover-background: var(--c-scroll-up);
+  --c-scroll-up: #c084fc;
+
+  --color-white: #ffffff;
+  --color-bg-body: #edf0f5;
+  --color-lightgrey: #b2b2b9;
+  --color-dark: #0f172a;
+  --color-orange: #c2410c;
+  --color-black: #{rgba(#000000, 10%)};
+
+  --transition: 0.3s ease 0s;
+  --border: #{rem(1)} solid var(--color-dark);
+  --border-radius: #{rem(10)};
+}

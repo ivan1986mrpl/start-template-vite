@@ -1,0 +1,80 @@
+// Сниппет (SCSS): ex
+// .image {
+//   @extend %ibg;
+// }
+
+%ibg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// кастомный нумерованный список
+%listCounter {
+  list-style-type: none;
+  counter-reset: item;
+  li {
+    position: relative;
+    &:before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+// Адаптивное видео
+%responsiveVideo {
+  video,
+  iframe,
+  object,
+  embed {
+    aspect-ratio: 16 / 9;
+  }
+}
+// Делает видео фоном страницы
+%videoBackground {
+  video,
+  iframe,
+  object,
+  embed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+  }
+}
+// Серий фильтр
+%grayfilter {
+  transition: all 0.3s ease 0s;
+  filter: grayscale(1);
+  @media (any-hover: hover) {
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
+// Запрещает выделять текст мышкой или касанием
+%noselect {
+  user-select: none;
+}
+// зеркально отражает элемент по горизонтали
+%mirror {
+  transform: scale(-1, 1);
+}
+// Включает плавную прокрутку на iOS Safari (особенно в overflow: scroll контейнерах)
+%smoothscroll {
+  -webkit-overflow-scrolling: touch;
+}
+// Убирает видимость скроллбара в WebKit-браузерах (Chrome, Safari)
+%hidescroll {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -13,7 +13,9 @@ export default function initCountdown(parent, to, timerEndMessage) {
 
   function addLeadingZero(d) {
     // подставляет 0 перед одиночной цифрой
-    return d < 10 ? '0' + d : d;
+    // return d < 10 ? '0' + d : d;
+
+    return d; //  для тех задания, где не нужен 0  перед одиночной цифрой
   }
 
   let timer;
@@ -27,7 +29,7 @@ export default function initCountdown(parent, to, timerEndMessage) {
   } else if (typeof to === 'number') {
     toCountDate = new Date(Date.now() + to * 1000); // если передано количество секунд
   } else {
-    console.error('Countdown error: invalid "to" argument');
+    // console.error('Countdown error: invalid "to" argument');
   }
 
   function countdown() {
@@ -91,7 +93,7 @@ export default function initCountdown(parent, to, timerEndMessage) {
         }
       });
     } else {
-      console.error('Countdown error: no parent mentioned'); //не передали родителя при вызове
+      // console.error('Countdown error: no parent mentioned'); //не передали родителя при вызове
     }
   }
 
