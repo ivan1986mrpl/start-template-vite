@@ -1,5 +1,5 @@
 export default function headerFon() {
-  //появление подложки под header при скролле для лучшей читаимости
+  //появление подложки под header при скролле для лучшей читаемости
   window.addEventListener('scroll', function () {
     //
     if (scrollY > 0) {

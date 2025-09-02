@@ -6,18 +6,6 @@ import {
   bodyLockStatus,
 } from '../function';
 
-// Загрузка звука для открытия попапа
-const popupOpenSound = new Audio('assets/audio/modal.mp3'); // путь к звуку
-
-// Громкость звука от 0 до 1 (0 — без звука, 1 — максимальная громкость)
-const volume = 0.4;
-
-const playSound = (sound) => {
-  sound.volume = volume;
-  sound.currentTime = 0;
-  sound.play().catch(() => {});
-};
-
 export default function popup() {
   // Делегирование кликов по всему body
   document.body.addEventListener('click', (e) => {
@@ -72,7 +60,6 @@ export default function popup() {
         bodyLock();
       }
       currentPopup.classList.add('open');
-      playSound(popupOpenSound); // Воспроизведение звука при открытии
     }
   }
 

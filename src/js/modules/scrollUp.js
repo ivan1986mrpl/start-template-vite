@@ -1,18 +1,41 @@
-export default function scrollUp({
+function scrollUp({
+  parent = document.body,
   offset = 300,
   maxWidth = 1600,
-  scrollUpSelector = '.scroll-up',
-  scrollUpPathSelector = '.scroll-up__path',
+  scrollUpClass = 'scroll-up',
+  scrollUpPathClass = 'scroll-up__path',
 } = {}) {
-  const scrollUp = document.querySelector(scrollUpSelector);
-  const scrollUpSvgPath = document.querySelector(scrollUpPathSelector);
-
-  if (!scrollUp || !scrollUpSvgPath) {
+  if (!parent || !(parent instanceof Element)) {
+    // действительно ли переменная parent является DOM-элементом
+    // console.warn('[scrollUp]: Неверный родительский элемент');
     return;
   }
 
-  const pathLength = scrollUpSvgPath.getTotalLength();
+  // Создание кнопки
+  const button = document.createElement('button');
+  button.className = scrollUpClass;
+  button.setAttribute('aria-label', 'scroll to top');
+  button.setAttribute('title', 'scroll to top');
 
+  // Создание SVG внутри кнопки
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.classList.add(`${scrollUpClass}__svg`);
+  svg.setAttribute('viewBox', '-2 -2 52 52');
+
+  const path = document.createElementNS(svgNS, 'path');
+  path.classList.add(scrollUpPathClass);
+  path.setAttribute('d', 'M 24,0 a24,24 0 0,1 0,48 a24,24 0 0,1 0,-48');
+
+  svg.appendChild(path);
+  button.appendChild(svg);
+  parent.appendChild(button);
+
+  // Логика кнопки
+  const scrollUp = button;
+  const scrollUpSvgPath = path;
+
+  const pathLength = scrollUpSvgPath.getTotalLength();
   scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
   scrollUpSvgPath.style.transition = 'stroke-dashoffset 20ms';
 
@@ -31,9 +54,9 @@ export default function scrollUp({
     updateDashOffset();
 
     if (scrolled > offset && width <= maxWidth) {
-      scrollUp.classList.add('scroll-up--active');
+      scrollUp.classList.add(`${scrollUpClass}--active`);
     } else {
-      scrollUp.classList.remove('scroll-up--active');
+      scrollUp.classList.remove(`${scrollUpClass}--active`);
     }
   };
 
@@ -47,25 +70,21 @@ export default function scrollUp({
     });
   });
 
-  // Инициализация состояния кнопки при загрузке
   toggleVisibility();
 }
 
+export { scrollUp };
+
+// scrollUp({
+//   parent: document.querySelector('.wrapper'),
+//   offset: 200,
+//   maxWidth: 1200,
+// });
+
 /* 
-// Вызов с параметрами по умолчанию (offset=300px, maxWidth=1600px)
-scrollUp();
-
-// Вызов с кастомными значениями
-scrollUp({
-  offset: 200,      // Кнопка появится после прокрутки 200px
-  maxWidth: 1024,   // Кнопка будет видна на экранах шириной до 1024px
-});
-
-// Вызов с кастомными селекторами, если у тебя в разметке класс отличается
-scrollUp({
-  scrollUpSelector: '.my-scroll-up-btn',
-  scrollUpPathSelector: '.my-scroll-up-path',
-  offset: 350,
-  maxWidth: 600,
-});
+<button class="scroll-up" aria-label="scroll to top">
+  <svg class="scroll-up__svg" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 52 52">
+    <path class="scroll-up__path" d="M 24,0 a24,24 0 0,1 0,48 a24,24 0 0,1 0,-48" />
+  </svg>
+</button>
 */
