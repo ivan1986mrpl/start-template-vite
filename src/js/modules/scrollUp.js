@@ -13,31 +13,24 @@ function scrollUp({
 
   // Создание кнопки
   const button = document.createElement('button');
-  button.className = scrollUpClass;
+  button.classList.add(scrollUpClass);
   button.setAttribute('aria-label', 'scroll to top');
   button.setAttribute('title', 'scroll to top');
 
-  // Создание SVG внутри кнопки
-  const svgNS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(svgNS, 'svg');
-  svg.classList.add(`${scrollUpClass}__svg`);
-  svg.setAttribute('viewBox', '-2 -2 52 52');
+  button.innerHTML = `
+    <svg class="${scrollUpClass}__svg" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 52 52">
+      <path class="${scrollUpPathClass}" d="M 24,0 a24,24 0 0,1 0,48 a24,24 0 0,1 0,-48" />
+    </svg>
+  `;
 
-  const path = document.createElementNS(svgNS, 'path');
-  path.classList.add(scrollUpPathClass);
-  path.setAttribute('d', 'M 24,0 a24,24 0 0,1 0,48 a24,24 0 0,1 0,-48');
-
-  svg.appendChild(path);
-  button.appendChild(svg);
   parent.appendChild(button);
 
   // Логика кнопки
-  const scrollUp = button;
-  const scrollUpSvgPath = path;
-
+  const scrollUpSvgPath = button.querySelector(`.${scrollUpPathClass}`);
   const pathLength = scrollUpSvgPath.getTotalLength();
+
   scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
-  scrollUpSvgPath.style.transition = 'stroke-dashoffset 20ms';
+  scrollUpSvgPath.style.transition = 'stroke-dashoffset 0.3s ease';
 
   const getTop = () => window.scrollY || document.documentElement.scrollTop;
 
@@ -54,23 +47,30 @@ function scrollUp({
     updateDashOffset();
 
     if (scrolled > offset && width <= maxWidth) {
-      scrollUp.classList.add(`${scrollUpClass}--active`);
+      button.classList.add(`${scrollUpClass}--active`);
     } else {
-      scrollUp.classList.remove(`${scrollUpClass}--active`);
+      button.classList.remove(`${scrollUpClass}--active`);
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   window.addEventListener('scroll', toggleVisibility);
   window.addEventListener('resize', toggleVisibility);
-
-  scrollUp.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  });
+  button.addEventListener('click', scrollToTop);
 
   toggleVisibility();
+
+  return {
+    destroy() {
+      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener('resize', toggleVisibility);
+      button.removeEventListener('click', scrollToTop);
+      button.remove();
+    },
+  };
 }
 
 export { scrollUp };
