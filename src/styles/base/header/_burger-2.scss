@@ -1,1 +1,76 @@
 @use '../../helpers' as *;
+
+.burger-button {
+  --burger-button-color: #ffffff;
+  --burger-button-color-hover: #ff4646;
+  --burger-button-color-open: #449f4d;
+
+  display: none;
+
+  @media (max-width: em(767.98)) {
+    flex: 0 0 rem(30);
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: rem(30);
+    height: rem(18);
+    color: var(--burger-button-color);
+    background-color: transparent;
+    border: none;
+    
+    @include hover {
+      color: var(--burger-button-color-hover);
+    }
+
+    &__line {
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: rem(2);
+      background-color: currentColor;
+      border-radius: 1rem;
+      transition-duration: var(--transition-duration);
+
+      &:first-child {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: calc(50% - rem(1));
+      }
+
+      &:last-child {
+        bottom: 0;
+      }
+    }
+
+    &.is-active {
+      .burger-button__line {
+        color: var(--burger-button-color-open);
+
+        &:nth-child(2) {
+          width: 0;
+        }
+
+        &:first-child {
+          top: calc(50% - rem(1));
+          transform: rotate(-45deg);
+        }
+
+        &:last-child {
+          bottom: calc(50% - rem(1));
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+/* 
+<button class="header__burger-button burger-button visible-mobile" type="button" aria-label="Open menu"
+  title="Open menu" data-js-header-burger-button>
+  <span class="burger-button__line"></span>
+  <span class="burger-button__line"></span>
+  <span class="burger-button__line"></span>
+</button>
+*/

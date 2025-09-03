@@ -1,22 +1,22 @@
 @use 'helpers' as *;
 
-p:where(:not([class]):not(:last-child)) {
+p:where(:not([class], :last-child)) {
   --paragraph-margin-bottom: 0.7rem;
 
   margin-bottom: var(--paragraph-margin-bottom);
 }
 
 html {
+  overscroll-behavior: none; // Отключает инерционную прокрутку ("bounce-эффект") на мобильных и десктопах.
   scroll-behavior: smooth;
-  text-size-adjust: 100%;  // Отключает автоматическое масштабирование текста при повороте экрана или при зуме на мобильных устройствах.
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility; // Включает улучшенное сглаживание текста
-  -webkit-font-smoothing: antialiased;// Включает "тонкое" сглаживание шрифтов в WebKit (меньше жирности).
-  -moz-osx-font-smoothing: grayscale;// Сглаживание шрифтов в macOS для Firefox.
-  scrollbar-gutter: stable;   // Резервирует место для полосы прокрутки, даже если она не отображается.
-  overscroll-behavior: none;  // Отключает инерционную прокрутку ("bounce-эффект") на мобильных и десктопах.
+  text-size-adjust: 100%; // Отключает автоматическое масштабирование текста при повороте экрана или при зуме на мобильных устройствах.
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-rendering: optimizelegibility; // Включает улучшенное сглаживание текста
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-gutter: stable; // Резервирует место для полосы прокрутки, даже если она не отображается.// Включает "тонкое" сглаживание шрифтов в WebKit (меньше жирности).// Сглаживание шрифтов в macOS для Firefox.
 }
 
 body {
@@ -26,13 +26,13 @@ body {
 
 a {
   display: inline-block;
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 
-// &:focus,
-// &:active {
-//   outline: none;
-// }
+  // &:focus,
+  // &:active {
+  //   outline: none;
+  // }
 
   &:hover,
   &:visited {

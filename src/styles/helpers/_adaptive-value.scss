@@ -1,17 +1,18 @@
-@use "sass:math";
+@use 'sass:math';
 @use './functions' as *;
 
 // Мінімальна ширина сторінки
 $minWidth: 320;
+
 // Ширина макету
 $maxWidth: 1920;
+
 // Ширина обмежуючого контейнера (0 = немає обмеження)
 $maxWidthContainer: 1170;
+
 // Загальний відступ у контейнера
 // (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
 // $containerPadding: 30;
-
-
 
 @mixin adaptiveValue(
   $property,
@@ -21,14 +22,15 @@ $maxWidthContainer: 1170;
   $widthFrom: $containerWidth,
   $widthTo: $minWidth
 ) {
-  @if ($startSize==0) {
+  @if $startSize==0 {
     $startSize: 0.000001;
   }
-  @if ($minSize==0) {
+
+  @if $minSize==0 {
     $minSize: 0.000001;
   }
 
-  @if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+  @if $widthFrom == $containerWidth and $maxWidthContainer == 0 {
     $widthFrom: $maxWidth;
   }
 
@@ -40,7 +42,8 @@ $maxWidthContainer: 1170;
   // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
   $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
   $yIntersection: -$widthTo * $slope + $minSize;
-  @if ($yIntersection==0) {
+
+  @if $yIntersection==0 {
     $yIntersection: 0.000001;
   }
   $flyValue: #{$yIntersection}px ' + ' #{$slope * 100}vw;
@@ -48,8 +51,9 @@ $maxWidthContainer: 1170;
   // Отримання значення властивості
   $propertyValue: #{'clamp(' #{$minSize}px ',' $flyValue ',' #{$startSize}px
     ')'};
+
   // Якщо негативні значення
-  @if ($minSize > $startSize) {
+  @if $minSize > $startSize {
     $propertyValue: #{'clamp('
       #{$startSize}px
       ','
@@ -65,10 +69,12 @@ $maxWidthContainer: 1170;
       #{$property}: #{$startSize}px;
     }
   }
+
   // Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
   @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
     #{$property}: $propertyValue;
   }
+
   @if $keepSize != 1 and $keepSize != 2 {
     @media (max-width: $widthToMedia) {
       #{$property}: #{$minSize}px;

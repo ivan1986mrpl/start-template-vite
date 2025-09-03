@@ -1,6 +1,7 @@
 @use 'reset';
 @use 'normalize';
 @use 'fonts/fonts';
+
 // @use 'fonts/icons';
 @use 'variables';
 @use 'utils';
@@ -15,9 +16,9 @@
 // @use 'blocks/hero';
 // @use 'blocks/second';
 
-
-
-
+@use './base/header/menu-header';
+@use './base/header/header-start';
+@use './base/header/burger-2';
 
 // .header,
 // main > *:not(:last-child), //  все секции, кроме последней

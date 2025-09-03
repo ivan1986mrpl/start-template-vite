@@ -3,10 +3,10 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
-  box-sizing: border-box;
 }
 
 *::before,
@@ -16,9 +16,9 @@
 
 html,
 body {
-  height: 100%;
   width: 100%;
   min-width: 320px;
+  height: 100%;
 }
 
 ul,
@@ -91,14 +91,14 @@ dd {
   font: inherit;
 }
 
-// Удаление анимаций при системных настройках 
+// Удаление анимаций при системных настройках
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }

@@ -13,14 +13,17 @@
     border: #{$size2}px solid transparent;
     border-right: #{$size}px solid $color;
   }
+
   @if $direction == right {
     border: #{$size2}px solid transparent;
     border-left: #{$size}px solid $color;
   }
+
   @if $direction == top {
     border: #{$size2}px solid transparent;
     border-bottom: #{$size}px solid $color;
   }
+
   @if $direction == bottom {
     border: #{$size2}px solid transparent;
     border-top: #{$size}px solid $color;
@@ -30,8 +33,8 @@
 // Grids
 @mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
   display: grid;
-  gap: $gap;
   grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+  gap: $gap;
 }
 
 // Grid-контейнер
@@ -42,12 +45,14 @@
   $paddingEnd: math.div(settings.$containerPadding, 2)
 ) {
   display: grid;
-  min-width: 0;
   grid-template-columns:
     #{$paddingStart}px 1fr minmax(auto, #{$container}px)
     1fr #{$paddingEnd}px;
+  min-width: 0;
+
   > * {
     min-width: 0;
+
     @if $type==1 {
       grid-column: 1 / 6;
     } @else if $type==2 {
