@@ -13,9 +13,9 @@ export default function initCountdown(parent, to, timerEndMessage) {
 
   function addLeadingZero(d) {
     // подставляет 0 перед одиночной цифрой
-    // return d < 10 ? '0' + d : d;
+    return d < 10 ? '0' + d : d;
 
-    return d; //  для тех задания, где не нужен 0  перед одиночной цифрой
+    // return d; //  для тех задания, где не нужен 0  перед одиночной цифрой
   }
 
   let timer;
