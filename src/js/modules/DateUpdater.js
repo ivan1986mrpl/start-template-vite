@@ -1,90 +1,14 @@
+import { locales } from '../helpers/locales';
+
 class DateUpdater {
   constructor(selector = '.date', options = {}) {
     this.selector = selector;
-
-    // Язык, локаль и тип форматирования
     this.lang = options.lang || document.documentElement.lang || 'en';
     this.locale = options.locale || navigator.language || 'en-US';
     this.useIntl = options.useIntl || false;
 
-    // Дни недели
-    this.days = {
-      ru: [
-        'Воскресенье',
-        'Понедельник',
-        'Вторник',
-        'Среда',
-        'Четверг',
-        'Пятница',
-        'Суббота',
-      ],
-      en: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-      ],
-      uk: [
-        'Неділя',
-        'Понеділок',
-        'Вівторок',
-        'Середа',
-        'Четвер',
-        'П’ятниця',
-        'Субота',
-      ],
-    };
+    this.locales = locales;
 
-    // Месяцы
-    this.months = {
-      ru: [
-        'Января',
-        'Февраля',
-        'Марта',
-        'Апреля',
-        'Мая',
-        'Июня',
-        'Июля',
-        'Августа',
-        'Сентября',
-        'Октября',
-        'Ноября',
-        'Декабря',
-      ],
-      en: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ],
-      uk: [
-        'Січня',
-        'Лютого',
-        'Березня',
-        'Квітня',
-        'Травня',
-        'Червня',
-        'Липня',
-        'Серпня',
-        'Вересня',
-        'Жовтня',
-        'Листопада',
-        'Грудня',
-      ],
-    };
-
-    // Intl форматтер
     if (this.useIntl) {
       try {
         this.formatter = new Intl.DateTimeFormat(this.locale, {
@@ -97,10 +21,7 @@ class DateUpdater {
           second: '2-digit',
           hour12: false,
         });
-      } catch (e) {
-        // console.warn(
-        //   `DateUpdater: invalid locale '${this.locale}', falling back to 'en-US'.`,
-        // );
+      } catch {
         this.formatter = new Intl.DateTimeFormat('en-US', {
           weekday: 'long',
           year: 'numeric',
@@ -122,31 +43,17 @@ class DateUpdater {
   }
 
   formatCustomDate(date) {
-    const days = this.days[this.lang] || this.days.en;
-    const months = this.months[this.lang] || this.months.en;
+    const localeData = this.locales[this.lang] || this.locales.en;
 
-    const dayName = days[date.getDay()];
-    const monthName = months[date.getMonth()];
+    const dayName = localeData.days[date.getDay()];
+    const monthName = localeData.months[date.getMonth()];
     const day = this.addLeadingZero(date.getDate());
     const year = date.getFullYear();
     const hours = this.addLeadingZero(date.getHours());
     const minutes = this.addLeadingZero(date.getMinutes());
     const seconds = this.addLeadingZero(date.getSeconds());
 
-    // Подпись в зависимости от языка
-    let label;
-    switch (this.lang) {
-      case 'ru':
-        label = 'Дата';
-        break;
-      case 'uk':
-        label = 'Дата';
-        break;
-      default:
-        label = 'Date';
-    }
-
-    return `${label}: ${day} ${monthName} ${year} ${hours}:${minutes}:${seconds} ${dayName}`;
+    return `${localeData.label}: ${day} ${monthName} ${year} ${hours}:${minutes}:${seconds} ${dayName}`;
   }
 
   formatDate(date) {
@@ -158,9 +65,6 @@ class DateUpdater {
   updateDate() {
     const element = document.querySelector(this.selector);
     if (!element) {
-      // console.warn(
-      //   `DateUpdater: элемент с селектором '${this.selector}' не найден.`,
-      // );
       return;
     }
 
@@ -180,38 +84,31 @@ class DateUpdater {
 
 export { DateUpdater };
 
-// Кастомное ручное форматирование по языку страницы
+// Если в <html lang="ru">,
+// Выведет: "Дата: 03 Сентября 2025 17:35:12 Среда"
 // const updater = new DateUpdater();
-// Пример вывода при <html lang="ru">:  Дата: 03 Сентября 2025 17:35:12 Среда
-// Пример вывода при <html lang="uk">:  Дата: 03 Вересня 2025 17:35:12 Середа
-// Пример вывода при <html lang="en">:  Date: 03 Sep 2025 17:35:12 Wednesday
 
-// Использовать Intl.DateTimeFormat с русской локалью
 // const updater = new DateUpdater('.date', {
 //   useIntl: true,
 //   locale: 'ru-RU',
 // });
-// Выведет: среда, 03 сентября 2025 г., 17:35:12
+// Выведет: "среда, 03 сентября 2025 г., 17:35:12"
 
-// Использовать Intl.DateTimeFormat с английской локалью
 // const updater = new DateUpdater('.date', {
 //   useIntl: true,
 //   locale: 'en-US',
 // });
-// Выведет: Wednesday, September 03, 2025, 17:35:12
+// Выведет: "Wednesday, September 03, 2025, 17:35:12"
 
-// Использовать Intl.DateTimeFormat с украинской локалью
 // const updater = new DateUpdater('.date', {
 //   useIntl: true,
 //   locale: 'uk-UA',
 // });
-// Выведет: середа, 03 вересня 2025 р., 17:35:12
+// Выведет: "середа, 03 вересня 2025 р., 17:35:12"
 
-// Автоматическое определение языка/локали по <html lang="">
-// Не передавай ни lang, ни locale
-// const updater = new DateUpdater('.date', {
-//   useIntl: true,
-// });
-
-// Остановка обновления даты
-// updater.stop();
+// Через 10 секунд останавливаем обновление
+// const updater = new DateUpdater('.date');
+// setTimeout(() => {
+//   updater.stop();
+//   console.log('Обновление даты остановлено');
+// }, 10000);
