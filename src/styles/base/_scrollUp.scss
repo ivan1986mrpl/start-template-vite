@@ -16,8 +16,7 @@
   color: var(--color-scroll-up-progress);
   background-color: var(--color-scroll-up-bcg);
   border-radius: 3rem;
-  box-shadow: inset 0 0 0 
-    var(--scroll-up-progress-width)
+  box-shadow: inset 0 0 0 var(--scroll-up-progress-width)
     var(--color-scroll-up-progress);
   visibility: hidden;
   opacity: 0;

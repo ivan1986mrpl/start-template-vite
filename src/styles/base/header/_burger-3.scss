@@ -16,7 +16,8 @@
     block-size: rem(45);
     color: var(--burger-button-color);
     background-color: transparent;
-    border: none;
+    border: 1px solid var(--burger-button-color);
+    border-radius: 0.5rem;
 
     @include hover {
       color: var(--burger-button-color-hover);
@@ -51,6 +52,8 @@
     }
 
     &.is-active {
+      border: 1px solid var(--burger-button-color-open);
+
       .burger-button__line {
         color: var(--burger-button-color-open);
 
@@ -71,13 +74,14 @@
   }
 }
 
-
 /* 
-<button class="header__burger-button burger-button" type="button" aria-label="Open menu"
-  title="Open menu" data-js-header-burger-button>
-  <span class="burger-button__line"></span>
-  <span class="burger-button__line"></span>
-  <span class="burger-button__line"></span>
+<button type="button" class="header__burger-button burger-button" data-js-header-burger-button
+  aria-label="Open menu" title="Open menu">
+  <div class="burger-button__inner">
+    <span class="burger-button__line"></span>
+    <span class="burger-button__line"></span>
+    <span class="burger-button__line"></span>
+  </div>
 </button>
 --
 ----

@@ -12,6 +12,7 @@
 // @use 'blocks/page';
 // @use 'blocks/common';
 @use 'blocks/header';
+
 // @use 'blocks/footer';
 // @use 'blocks/hero';
 // @use 'blocks/second';
@@ -25,13 +26,15 @@
 .hero {
   padding-top: 100px;
 }
+
 .counters {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  color: black;
   font-size: 24px;
+  color: black;
+
   span {
     display: block;
   }

@@ -2,6 +2,7 @@
 
 .header {
   --header-animation-shadow: var(--color-dark);
+
   animation-name: scrolling-header; //  2.04
   animation-fill-mode: both;
   animation-timeline: scroll();

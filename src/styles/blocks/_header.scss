@@ -1,4 +1,5 @@
 @use '../helpers' as *;
+
 // @use '../base/header/header-fon';
 // @use '../base/header/header-shadow';
 @use '../base/header/burger-2';
@@ -7,19 +8,21 @@
 
 .header {
   position: fixed;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50;
-  background-color: #000;
+  background-color: #000000;
+
   &__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     column-gap: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
   &__logo,
   &__actions {
     position: relative; // burger
@@ -44,12 +47,14 @@
       </nav>
     </div>
     <div class="header__actions"></div>
-    <button class="header__burger-button burger-button" type="button" aria-label="Open menu" title="Open menu"
-      data-js-header-burger-button>
-      <span class="burger-button__line"></span>
-      <span class="burger-button__line"></span>
-      <span class="burger-button__line"></span>
-    </button>
+      <button type="button" class="header__burger-button burger-button" data-js-header-burger-button
+        aria-label="Open menu" title="Open menu">
+        <div class="burger-button__inner">
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+        </div>
+      </button>
   </div>
 </header>
 */

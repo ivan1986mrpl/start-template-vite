@@ -27,9 +27,9 @@
       top: 0;
       right: -100%;
       width: 100%;
+      height: fluid(110, 60);
       background-color: var(--menu-background-before);
       transition: right 0.3s;
-      height: fluid(110, 60);
     }
 
     &.is-active {
@@ -43,10 +43,10 @@
 
   &__list {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    row-gap: rem(10);
-    column-gap: 30px;
+    align-items: center;
+    gap: rem(10) 30px;
+
     @media (max-width: em(767.98)) {
       flex-direction: column;
       justify-content: center;
@@ -69,4 +69,3 @@
     }
   }
 }
-

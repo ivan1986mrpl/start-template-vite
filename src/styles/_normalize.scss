@@ -8,10 +8,7 @@ p:where(:not([class], :last-child)) {
 
 html {
   overscroll-behavior: none; // Отключает инерционную прокрутку ("bounce-эффект") на мобильных и десктопах.
-  scroll-behavior: smooth;
-  text-size-adjust: 100%; // Отключает автоматическое масштабирование текста при повороте экрана или при зуме на мобильных устройствах.
-  text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  scroll-behavior: smooth; // Отключает автоматическое масштабирование текста при повороте экрана или при зуме на мобильных устройствах.
   text-size-adjust: 100%;
   text-rendering: optimizelegibility; // Включает улучшенное сглаживание текста
   -webkit-font-smoothing: antialiased;
