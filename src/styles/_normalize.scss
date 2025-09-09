@@ -18,7 +18,8 @@ html {
 
 body {
   min-width: 320px;
-  line-height: 1.5;
+
+  // line-height: 1.5;
 }
 
 a {
@@ -26,10 +27,10 @@ a {
   text-decoration: none;
   color: inherit;
 
-  // &:focus,
-  // &:active {
-  //   outline: none;
-  // }
+  &:focus,
+  &:active {
+    outline: none;
+  }
 
   &:hover,
   &:visited {

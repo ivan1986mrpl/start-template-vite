@@ -1,28 +1,30 @@
 @use '../helpers' as *;
 
-/* 
 .hover-link {
-    position: relative;
-    transition: color 0.4s ease 0s;
-    &::after{
-        content:'';
-        position: absolute;
-        bottom: rem(-3);
-        left: 0;
-        width: 0;
-        height: rem(2);
-        transition: width 0.3s ease 0s;
-        background-color: var(--hover-background);        
+  position: relative;
+  transition: color 0.4s ease 0s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: rem(-3);
+    left: 0;
+    width: 0;
+    height: rem(2);
+    background-color: var(--hover-background);
+    transition: width 0.3s ease 0s;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--hover-color);
     }
-    @media (any-hover: hover){
-        &:hover{
-            color: var(--hover-color);
-        }
-        &:hover::after {
-            width: 100%;
-        }
+
+    &:hover::after {
+      width: 100%;
     }
-} */
+  }
+}
 
 // ===================
 

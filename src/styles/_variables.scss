@@ -2,32 +2,33 @@
 
 // --f-font-size: #{rem(16)}; #{rgba(#000, 10%) (если используем функции в css переменных, надо обернуть в #{} , иначе функции не будут работать)
 :root {
-  --font-family-base: 'Montserrat', sans-serif;
-  --font-family: 'Montserrat', sans-serif;
-  --second-family: 'Allura', sans-serif;
+  --font-family-base: 'Roboto', sans-serif;
+  --font-family: 'Roboto', sans-serif;
+  --second-family: 'Roboto', sans-serif;
 
-  --container-width: #{rem(1600)};
-  --container-padding-x: #{rem(16)};
-  --transition-duration: 0.2s;
+  --container-width: #{rem(1200)};
+  --container-padding-x: #{rem(15)};
+  --transition-duration: 0.3s;
+  --transition: 0.3s ease 0s;
 
   --font-size: #{rem(16)};
   --font-size-mobile: #{rem(16)};
   --font-weight: 400;
-  --line-height: 1.5;
+  --line-height: 1;
 
   --main-color: var(--color-dark);
-  --second-color: var(--color-dark);
+  --second-color: var(--color-orange);
   --accent-color: var(--color-orange);
   --hover-color: var(--color-orange);
   --hover-background: var(--color-orange);
-  --color-bg-body: var(--color-orange);
-  --c-scroll-up: #ff4646;
+  --color-bg-body: var(--color-white);
+  --scroll-up: var(--color-orange);
 
   --color-white: #ffffff;
-  --color-dark: #181c29;
-  --color-orange: #ff4646;
-  --color-purple: #4361ff;
-  --color-pink: #ff43f7;
-  --color-green: #06a44f;
-  --color-light: #ecf3f8;
+  --color-light: #fafaf5;
+  --color-dark: #000000;
+  --color-orange: #ffa501;
+
+  --border: 1px solid var(--color-white);
+  --border-radius: #{rem(8)};
 }

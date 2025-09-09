@@ -1,11 +1,12 @@
 @use '../helpers' as *;
 
 .spollers__title {
+  // font-size: rem(18);
   position: relative;
   width: 100%;
-  padding: rem(10);
-  font-size: rem(18);
   background-color: transparent;
+
+  // padding: rem(10);
   text-align-last: left;
 }
 
@@ -22,12 +23,11 @@
 
 .init .spollers__title::after {
   content: '';
+
+  // background: url("../assets/img/root/spoller-white.svg") center center no-repeat;
   width: 20px;
   height: 20px;
-
-  // background: url("../assets/img/root/spoller.svg") center center no-repeat;
-  background: url('../assets/img/root/spoller-white.svg') center center
-    no-repeat;
+  background: url('../assets/img/root/spoller.svg') center center no-repeat;
   transition: transform 0.5s;
 }
 

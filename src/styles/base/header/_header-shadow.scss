@@ -1,7 +1,7 @@
 @use '../../helpers' as *;
 
 .header {
-  --header-animation-shadow: var(--color-dark);
+  --header-animation-shadow: var(--color-orange);
 
   animation-name: scrolling-header; //  2.04
   animation-fill-mode: both;

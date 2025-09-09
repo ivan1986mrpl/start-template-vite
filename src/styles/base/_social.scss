@@ -13,25 +13,23 @@
   }
 
   &__link {
-    --size: #{rem(40)};
+    --size: #{rem(44)};
 
     @include square(var(--size));
 
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-dark);
     transition: var(--transition);
 
     &:active,
     &:focus {
-      background-color: var(--color-focus-active);
       border-radius: 4px;
       outline: var(--outline-active);
     }
 
     @include hover {
-      color: var(--color-orange);
+      transform: scale(1.09);
     }
   }
 }

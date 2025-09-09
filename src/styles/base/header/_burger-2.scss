@@ -3,9 +3,9 @@
 //  animated
 .burger-button {
   --burger-button-color-line: #ffffff;
-  --burger-button-color-bcg: #ff4646;
-  --burger-button-color-hover: #ff4646;
-  --burger-button-color-open: orange;
+  --burger-button-color-bcg: #ffa501;
+  --burger-button-color-hover: #ffa501;
+  --burger-button-color-open: #ffa501;
 
   display: none;
 
@@ -92,10 +92,10 @@
 /* 
 <button type="button" class="header__burger-button burger-button" data-js-header-burger-button
   aria-label="Open menu" title="Open menu">
-  <div class="burger-button__inner">
+  <span class="burger-button__inner">
     <span class="burger-button__line"></span>
     <span class="burger-button__line"></span>
     <span class="burger-button__line"></span>
-  </div>
+  </span>
 </button>
 */

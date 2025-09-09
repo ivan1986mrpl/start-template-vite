@@ -1,4 +1,4 @@
-import { _slideUp, _slideToggle, _slideDown } from '../function';
+import { _slideUp, _slideToggle, _slideDown } from '../function/function';
 /*
 data-one-spoiler функция акордеона, может быть открыт только один спойлер из всех
 data-spoilers пустой атрибут вешаем на родителя, если надо вывести спойлеры, которые будут работать на любом разрешении экрана

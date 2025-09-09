@@ -1,83 +1,110 @@
 @use 'sass:math';
 @use './functions' as *;
 
-// Мінімальна ширина сторінки
-$minWidth: 320;
+// отступы безопасности для контейнера
+$main-offset: 15;
 
-// Ширина макету
-$maxWidth: 1920;
+// максимальная ширина страницы
+$max-width: 1920;
 
-// Ширина обмежуючого контейнера (0 = немає обмеження)
-$maxWidthContainer: 1170;
+// минимальная ширина телефона
+$min-width: 320;
 
-// Загальний відступ у контейнера
-// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
-// $containerPadding: 30;
+// ширина контейнера из макета
+$container-width: 1200;
 
-@mixin adaptiveValue(
+// ширина контейнера с учетом padding слева и справа
+$max-width-container: $container-width + ($main-offset * 2);
+
+// $header-height: 100;
+// $footer-height: 100;
+// Брейк-поїнти
+
+// $pc: em($container-width);
+// $tablet: em(991.98);
+// $mobile: em(767.98);
+// $mobileSmall: em(479.98);
+
+@mixin adaptive-clamp(
   $property,
-  $startSize,
-  $minSize: $minSize,
-  $keepSize: 0,
-  $widthFrom: $containerWidth,
-  $widthTo: $minWidth
+  $start-size,
+  $min-size,
+  $width-from: $container-width,
+  $width-to: $min-width,
+  $keep-size: 0
 ) {
-  @if $startSize==0 {
-    $startSize: 0.000001;
-  }
+  // Для calc();
+  $add-size: math.div($start-size - $min-size, 16);
 
-  @if $minSize==0 {
-    $minSize: 0.000001;
-  }
+  // Брейк-поинты в EM
+  $width-from-media: em($width-from);
+  $width-to-media: em($width-to);
 
-  @if $widthFrom == $containerWidth and $maxWidthContainer == 0 {
-    $widthFrom: $maxWidth;
-  }
-
-  // Брейк-поїнти в EM
-  $widthFromMedia: em($widthFrom);
-  $widthToMedia: rem($widthTo);
-
-  // Формула плаваючого значення
+  // Формула плавающего значения
   // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-  $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
-  $yIntersection: -$widthTo * $slope + $minSize;
+  $slope: math.div(($start-size - $min-size), ($width-from - $width-to));
+  $y-intersection: -$width-to * $slope + $min-size;
+  $fly-value: #{rem($y-intersection)}' + ' #{$slope * 100}vw;
 
-  @if $yIntersection==0 {
-    $yIntersection: 0.000001;
-  }
-  $flyValue: #{$yIntersection}px ' + ' #{$slope * 100}vw;
-
-  // Отримання значення властивості
-  $propertyValue: #{'clamp(' #{$minSize}px ',' $flyValue ',' #{$startSize}px
+  // Получение значения свойства
+  $property-value: #{'clamp(' rem($min-size) ',' $fly-value ',' rem($start-size)
     ')'};
 
-  // Якщо негативні значення
-  @if $minSize > $startSize {
-    $propertyValue: #{'clamp('
-      #{$startSize}px
+  @if $width-from == $container-width and $max-width-container == 0 {
+    $width-from: global.$max-width;
+  }
+
+  @if $min-size <= 0 {
+    $min-size: 0.0001;
+  }
+
+  @if $start-size <= 0 {
+    $start-size: 0.0001;
+  }
+
+  // Если отрицательные значения
+  @if $min-size > $start-size {
+    $property-value: #{'clamp('
+      rem($start-size)
       ','
-      $flyValue
+      $fly-value
       ','
-      #{$minSize}px
+      rem($min-size)
       ')'};
   }
 
-  // Встановлюємо значення за замовчуванням
-  @if $keepSize != 1 and $keepSize != 3 {
-    @media (min-width: $widthFromMedia) {
-      #{$property}: #{$startSize}px;
+  @if $width-from ==
+    $container-width or
+    $width-from ==
+    $max-width or
+    $keep-size ==
+    1 or
+    $keep-size ==
+    2
+  {
+    @media (min-width: $width-from-media) {
+      #{$property}: rem($start-size);
     }
   }
 
-  // Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
-  @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
-    #{$property}: $propertyValue;
+  @media (min-width: $width-to-media) and (max-width: $width-from-media) {
+    // Если поддерживается clamp();
+    @supports (#{$property}: $property-value) {
+      #{$property}: $property-value;
+    }
+
+    // Если не поддерживается clamp();
+    @supports not (#{$property}: $property-value) {
+      #{$property}: calc(
+        #{rem($min-size)} + #{$add-size} * (100vi - #{rem($width-to)}) /
+          #{math.div($width-from, 16) - math.div($width-to, 16)}
+      );
+    }
   }
 
-  @if $keepSize != 1 and $keepSize != 2 {
-    @media (max-width: $widthToMedia) {
-      #{$property}: #{$minSize}px;
+  @if $width-to == $min-width or $keep-size == 1 or $keep-size == 3 {
+    @media (max-width: $width-to-media) {
+      #{$property}: rem($min-size);
     }
   }
 }

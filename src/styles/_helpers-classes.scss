@@ -36,19 +36,3 @@
 // 		height: 100%;
 // 	}
 // }
-
-[stroke] {
-  //  Если у SVG есть атрибут stroke, он будет использовать цвет текста (currentColor)
-  stroke: currentColor;
-}
-
-svg * {
-  //  Плавный переход цвета при hover/focus на SVG.
-  transition-property: fill, stroke;
-}
-
-html,
-:has(:target) {
-  //  :has(:target) — работает при переходе по якорю (если элемент стал :target).
-  scroll-behavior: smooth;
-}
