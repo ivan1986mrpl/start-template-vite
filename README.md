@@ -37,3 +37,8 @@ npm run format:fix
 npm run lint
 
 npm run lint:fix
+
+npm i lint-staged -D
+
+npm install --save-dev husky
+npx husky init
