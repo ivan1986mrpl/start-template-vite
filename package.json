@@ -17,8 +17,14 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js, jsx}": [
+    "*.{js}": [
       "eslint . --fix --no-cache --max-warnings=0"
+    ],
+    "*.{css,scss}": [
+      "stylelint \"**/*.{css,scss}\" --fix  --no-cache --max-warnings=0"
+    ],
+    "*.{js,json,css,scss,md}": [
+      "prettier . --write"
     ]
   },
   "devDependencies": {
