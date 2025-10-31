@@ -17,7 +17,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js}": [
+    "*.js": [
       "eslint . --fix --no-cache --max-warnings=0"
     ],
     "*.{css,scss}": [
@@ -53,6 +53,9 @@
     "vite-plugin-sass-glob-import": "5.0.0"
   },
   "browserslist": [
-    "last 2 versions"
+    ">0.5%",
+    "last 2 versions",
+    "not dead",
+    "not op_mini all"
   ]
 }
