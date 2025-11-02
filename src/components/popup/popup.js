@@ -4,7 +4,7 @@ import {
   bodyLock,
   bodyUnlock,
   bodyLockStatus,
-} from '../function';
+} from '../../js/function/bodyLock';
 
 export default function popup() {
   // Делегирование кликов по всему body
