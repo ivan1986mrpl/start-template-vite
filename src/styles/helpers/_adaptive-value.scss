@@ -11,14 +11,10 @@ $max-width: 1920;
 $min-width: 320;
 
 // ширина контейнера из макета
-$container-width: 1200;
+$container-width: 1260;
 
 // ширина контейнера с учетом padding слева и справа
 $max-width-container: $container-width + ($main-offset * 2);
-
-// $header-height: 100;
-// $footer-height: 100;
-// Брейк-поїнти
 
 // $pc: em($container-width);
 // $tablet: em(991.98);

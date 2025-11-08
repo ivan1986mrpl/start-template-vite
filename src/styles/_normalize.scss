@@ -1,11 +1,5 @@
 @use 'helpers' as *;
 
-p:where(:not([class], :last-child)) {
-  --paragraph-margin-bottom: 0.7rem;
-
-  margin-bottom: var(--paragraph-margin-bottom);
-}
-
 html {
   overscroll-behavior: none; // Отключает инерционную прокрутку ("bounce-эффект") на мобильных и десктопах.
   scroll-behavior: smooth; // Отключает автоматическое масштабирование текста при повороте экрана или при зуме на мобильных устройствах.
@@ -14,12 +8,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable; // Резервирует место для полосы прокрутки, даже если она не отображается.// Включает "тонкое" сглаживание шрифтов в WebKit (меньше жирности).// Сглаживание шрифтов в macOS для Firefox.
-}
-
-body {
-  min-width: 320px;
-
-  // line-height: 1.5;
 }
 
 a {

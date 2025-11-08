@@ -1,74 +1,111 @@
 import {
-  // body,
-  // lockPadding,
   bodyLock,
   bodyUnlock,
   bodyLockStatus,
 } from '../../js/function/bodyLock';
 
-export default function popup() {
-  // Делегирование кликов по всему body
-  document.body.addEventListener('click', (e) => {
-    // Открытие попапа по клику на .popup-link
-    const popupLink = e.target.closest('.popup-link');
-    if (popupLink) {
-      e.preventDefault();
-      const popupName = popupLink.getAttribute('href').replace('#', '');
-      const currentPopup = document.getElementById(popupName);
-      popupOpen(currentPopup);
-      return; // чтобы дальше не искать close-popup при клике по popup-link
-    }
+const rootSelector = '[data-popup]';
 
-    // Закрытие попапа по клику на кнопку закрытия
-    const closeBtn = e.target.closest('.close-popup');
-    if (closeBtn) {
+class Popup {
+  selectors = {
+    root: rootSelector,
+    link: '[data-popup-link]',
+    close: '[data-popup-close]',
+    content: '[data-popup-content]',
+  };
+
+  stateClasses = {
+    isOpen: 'is-open',
+  };
+
+  constructor(rootElement) {
+    this.rootElement = rootElement;
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    document.body.addEventListener('click', this.onBodyClick);
+    document.addEventListener('keydown', this.onEscapePress);
+  }
+
+  onBodyClick = (e) => {
+    const link = e.target.closest(this.selectors.link);
+    const close = e.target.closest(this.selectors.close);
+    const popupContent = e.target.closest(this.selectors.content);
+
+    // Открытие попапа
+    if (link) {
       e.preventDefault();
-      const popup = closeBtn.closest('.popup');
-      popupClose(popup);
+      const popupName = link.dataset.popupLink;
+      const targetPopup = document.querySelector(`[data-popup="${popupName}"]`);
+      this.open(targetPopup);
       return;
     }
-  });
 
-  // Делегирование клика по затемнённой области модального окна
-  document.body.addEventListener('click', (e) => {
-    const openPopup = document.querySelector('.popup.open');
-    if (
-      openPopup &&
-      !e.target.closest('.popup__content') &&
-      e.target.closest('.popup')
-    ) {
-      popupClose(openPopup);
+    // Закрытие по кнопке
+    if (close) {
+      e.preventDefault();
+      const popup = close.closest(this.selectors.root);
+      this.close(popup);
+      return;
     }
-  });
 
-  // Закрытие по Escape
-  document.addEventListener('keydown', (e) => {
+    // Закрытие по клику на фон
+    const openPopup = document.querySelector(
+      `${this.selectors.root}.${this.stateClasses.isOpen}`,
+    );
+    if (openPopup && !popupContent && e.target.closest(this.selectors.root)) {
+      this.close(openPopup);
+    }
+  };
+
+  onEscapePress = (e) => {
     if (e.code === 'Escape') {
-      const popupActive = document.querySelector('.popup.open');
-      if (popupActive) {
-        popupClose(popupActive);
+      const openPopup = document.querySelector(
+        `${this.selectors.root}.${this.stateClasses.isOpen}`,
+      );
+      if (openPopup) {
+        this.close(openPopup);
       }
     }
-  });
+  };
 
-  function popupOpen(currentPopup) {
-    if (currentPopup && bodyLockStatus) {
-      const popupActive = document.querySelector('.popup.open');
-      if (popupActive) {
-        popupClose(popupActive, false);
+  open(popupElement) {
+    if (popupElement && bodyLockStatus) {
+      const activePopup = document.querySelector(
+        `${this.selectors.root}.${this.stateClasses.isOpen}`,
+      );
+
+      if (activePopup) {
+        this.close(activePopup, false);
       } else {
         bodyLock();
       }
-      currentPopup.classList.add('open');
+
+      popupElement.classList.add(this.stateClasses.isOpen);
     }
   }
 
-  function popupClose(popupActive, doUnlock = true) {
-    if (popupActive && bodyLockStatus) {
-      popupActive.classList.remove('open');
+  close(popupElement, doUnlock = true) {
+    if (popupElement && bodyLockStatus) {
+      popupElement.classList.remove(this.stateClasses.isOpen);
       if (doUnlock) {
         bodyUnlock();
       }
     }
   }
 }
+
+class PopupCollection {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    document.querySelectorAll(rootSelector).forEach((element) => {
+      new Popup(element);
+    });
+  }
+}
+
+export default PopupCollection;

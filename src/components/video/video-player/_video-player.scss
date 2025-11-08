@@ -1,21 +1,22 @@
-@use '../../styles/helpers/' as *;
+@use '../../../styles/helpers/' as *;
 
 .video-player {
   position: relative;
 
   &__video {
     width: 100%;
-    height: fluid(412, 210);
     object-fit: cover;
-    border-radius: rem(12);
 
-    @include laptop {
-      border-radius: rem(10);
-    }
+    // height: fluid(412, 210);
+    // border-radius: rem(12);
 
-    &--small {
-      height: fluid(290, 208);
-    }
+    // @include laptop {
+    //   border-radius: rem(10);
+    // }
+
+    // &--small {
+    //   height: fluid(290, 208);
+    // }
   }
 
   &__panel {
@@ -56,13 +57,15 @@
   &__play-button {
     --size: #{rem(70)};
 
-    @include flex-center;
-    @include square(var(--size));
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     color: var(--color-light);
     background-color: transparent;
     border: none;
+
+    @include square(var(--size));
 
     @include hover {
       color: var(--color-accent);
@@ -75,22 +78,22 @@
 }
 
 /* 
-<div class="video-player" data-js-video-player>
+<div class="video-player" data-video-player>
   <video
     class="video-player__video video-player__video--small"
     src="./assets/video/1.mp4"
     width="470"
     height="390"
     poster="./assets/img/videos/poster-1.webp"
-    data-js-video-player-video
+    data-video-player-video
   ></video>
-  <div class="video-player__panel is-active" data-js-video-player-panel>
+  <div class="video-player__panel is-active" data-video-player-panel>
     <button
       class="video-player__play-button"
       type="button"
       aria-label="Play video"
       title="Play video"
-      data-js-video-player-play-button
+      data-video-player-play-button
     >
       <svg
         width="58"

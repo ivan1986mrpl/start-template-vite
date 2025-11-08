@@ -1,11 +1,11 @@
-const rootSelector = '[data-js-video-player]';
+const rootSelector = '[data-video-player]';
 
 class VideoPlayer {
   selectors = {
     root: rootSelector,
-    video: '[data-js-video-player-video]',
-    panel: '[data-js-video-player-panel]',
-    playButton: '[data-js-video-player-play-button]',
+    video: '[data-video-player-video]',
+    panel: '[data-video-player-panel]',
+    playButton: '[data-video-player-play-button]',
   };
 
   stateClasses = {

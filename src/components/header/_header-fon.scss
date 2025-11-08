@@ -3,6 +3,7 @@
 .header::before {
   content: '';
   position: absolute;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,6 +11,8 @@
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
   transition: opacity 0.3s;
+
+  // pointer-events: none;
 }
 
 .header.scroll::before {

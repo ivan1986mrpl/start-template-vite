@@ -20,19 +20,18 @@
 
 .init .spollers__title::after {
   content: '';
-
-  // background: url("../assets/img/root/spoller-white.svg") center center no-repeat;
   width: 20px;
   height: 20px;
-  background: url('../assets/img/root/spoller.svg') center center no-repeat;
+  background: url('../assets/img/root/spoller-white.svg') center center
+    no-repeat;
+
+  // background: url('../assets/img/root/spoller.svg') center center no-repeat;
   transition: transform 0.5s;
 }
 
 .init .spollers__title.active::after {
   transform: rotate(-180deg);
 }
-
-// указать свои стили
 
 /* 
 add this markup to index.html

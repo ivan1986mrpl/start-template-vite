@@ -1,25 +1,34 @@
 @use 'reset';
 @use 'normalize';
 @use 'fonts/fonts';
-
-// @use 'fonts/icons';
 @use 'variables';
 @use 'utils';
 @use 'globals';
 @use 'helpers-classes';
+
+// @use '../components/keyframes/keyframes';
+// @use '../components/form/button';
+// @use '../components/icon/link';
+// @use '../components/hover/hover-link';
+// @use '../components/hover/pulse';
+// @use '../components/hover/hover-prompt';
+// @use '../components/spollers/spollers';
+// @use '../components/scrollUpButton/scroll-up-button';
+// @use '../components/video/video-player/video-player';
+// @use '../components/Popup/popup';
+// @use 'blocks/card';
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';
 @use 'blocks/footer';
 @use 'blocks/hero';
 @use 'blocks/second';
-
-// @use 'blocks/third';
-// @use 'blocks/fourth';
-// @use 'blocks/fifth';
+@use 'blocks/third';
+@use 'blocks/fourth';
+@use 'blocks/fifth';
 
 // .header,
-// main > *:not(:last-child), //  все секции, кроме последней
+// main > *:not(:last-child),
 // .footer {
 //   display: none !important;
 // }

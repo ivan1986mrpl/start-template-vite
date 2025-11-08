@@ -1,7 +1,7 @@
 @use '../../styles/helpers/' as *;
 
 .header {
-  --header-animation-shadow: var(--color-orange);
+  --header-animation-shadow: var(--accent-color);
 
   animation-name: scrolling-header;
   animation-fill-mode: both;

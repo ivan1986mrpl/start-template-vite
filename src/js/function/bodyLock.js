@@ -1,39 +1,47 @@
 export let bodyLockStatus = true;
-export const lockPadding = document.querySelectorAll('.lock-padding');
-export const body = document.querySelector('body');
-export function bodyLock(delay = 500) {
-  const lockPaddingValue =
-    window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
-
-  if (lockPadding.length > 0) {
-    for (let i = 0; i < lockPadding.length; i++) {
-      const el = lockPadding[i];
-      el.style.paddingRight = lockPaddingValue;
-    }
+export const bodyLock = (delay = 500) => {
+  if (!bodyLockStatus) {
+    return;
   }
+
+  const body = document.body;
+  const wrapper = document.querySelector('.wrapper');
+  const lockPaddingValue =
+    window.innerWidth -
+    (wrapper ? wrapper.offsetWidth : body.offsetWidth) +
+    'px';
+  const lockPadding = document.querySelectorAll('[data-lp]');
+
+  lockPadding.forEach((el) => (el.style.paddingRight = lockPaddingValue));
   body.style.paddingRight = lockPaddingValue;
   body.classList.add('lock');
 
   bodyLockStatus = false;
-  setTimeout(function () {
-    bodyLockStatus = true;
-  }, delay);
-}
+  setTimeout(() => (bodyLockStatus = true), delay);
+};
 
-export function bodyUnlock(delay = 500) {
-  setTimeout(function () {
-    if (lockPadding.length > 0) {
-      for (let i = 0; i < lockPadding.length; i++) {
-        const el = lockPadding[i];
-        el.style.paddingRight = '0px';
-      }
-    }
-    body.style.paddingRight = '0px';
+export const bodyUnlock = (delay = 500) => {
+  if (!bodyLockStatus) {
+    return;
+  }
+
+  const body = document.body;
+  const lockPadding = document.querySelectorAll('[data-lp]');
+
+  setTimeout(() => {
+    lockPadding.forEach((el) => (el.style.paddingRight = ''));
+    body.style.paddingRight = '';
     body.classList.remove('lock');
   }, delay);
 
   bodyLockStatus = false;
-  setTimeout(function () {
-    bodyLockStatus = true;
-  }, bodyLockStatus);
-}
+  setTimeout(() => (bodyLockStatus = true), delay);
+};
+
+export const bodyLockToggle = (delay = 500) => {
+  if (document.body.classList.contains('lock')) {
+    bodyUnlock(delay);
+  } else {
+    bodyLock(delay);
+  }
+};
