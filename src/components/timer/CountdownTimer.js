@@ -1,4 +1,4 @@
-import { locales } from './helpers/locales.js';
+import { locales } from '../../js/helpers/locales';
 
 class CountdownTimer {
   /**
@@ -184,7 +184,7 @@ class CountdownTimer {
   }
 }
 
-export { CountdownTimer };
+export default CountdownTimer;
 
 // Запуск таймера, который считает до 29 июня 2026 17:28
 // const countdown = new CountdownTimer(

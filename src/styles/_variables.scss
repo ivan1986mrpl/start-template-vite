@@ -2,32 +2,38 @@
 
 // --f-font-size: #{rem(16)}; #{rgba(#000, 10%) (если используем функции в css переменных, надо обернуть в #{} , иначе функции не будут работать)
 :root {
-  --font-family-base: 'Montserrat', sans-serif;
-  --font-family: 'Montserrat', sans-serif;
-  --second-family: 'Montserrat', sans-serif;
+  --font-family-base: 'Roboto', sans-serif;
+  --font-family: 'Roboto', sans-serif;
+  --second-family: 'Roboto', sans-serif;
 
-  --container-width: #{rem(1260)};
+  --container-width: #{rem(1280)};
   --container-padding-x: #{rem(15)};
   --transition-duration: 0.3s;
   --transition: 0.3s ease 0s;
 
-  --font-size: #{rem(20)};
+  --scrollbar-width: 0rem;
+  --z-index-header: 50;
+  --z-index-scroll-up: 10;
+  --z-index-popup: 150;
+  --z-body-after: 149;
+
+  --font-size: #{rem(18)};
   --font-size-mobile: #{rem(16)};
   --font-weight: 400;
-  --line-height: 1.6;
+  --line-height: 1.5;
 
-  --main-color: var(--color-grey);
-  --second-color: var(--color-white);
-  --gradient-color: linear-gradient(245deg, #237249 0%, #35c66b 100%);
-  --accent-color: #35c66b;
-  --hover-color: var(--accent-color);
-  --hover-background: var(--accent-color);
-  --scroll-up: var(--accent-color);
+  --main-color: var(--color-white);
+  --second-color: var(--color-dark);
+
+  // --accent-color: var();
+  // --hover-color: var();
+  // --hover-background: var();
+  // --scroll-up: var();
 
   --color-white: #ffffff;
-  --color-light: #fafaf5;
-  --color-dark: #121517;
-  --color-grey: #d9d9d9;
+  --color-dark: #0f172a;
+  --color-gray: #534d4d;
   --border: 1px solid var(--main-color);
   --border-radius: #{rem(10)};
+  --border-radius-btn: #{rem(8)};
 }

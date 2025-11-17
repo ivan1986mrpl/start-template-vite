@@ -4,60 +4,17 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: rem(24);
+  padding-block: rem(16);
+  padding-inline: rem(40);
+  font-size: rem(20);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
   text-align: center;
-  color: var(--second-color);
-  background: var(--gradient-color);
-  border-radius: rem(83);
+  color: var(--color-white);
+  background-color: var(--color-purple);
+  border-radius: var(--border-radius-btn);
   transition: var(--transition);
-
-  @media (max-width: em(767.98)) {
-    font-size: rem(16);
-  }
-
-  &--max {
-    padding: rem(20) rem(78);
-    font-weight: 600;
-
-    @media (max-width: em(767.98)) {
-      padding: rem(16) rem(50);
-      font-size: rem(16);
-    }
-  }
-
-  &--icon {
-    padding: rem(20) rem(43);
-    font-weight: 600;
-
-    @media (max-width: em(767.98)) {
-      padding: rem(16) rem(34);
-    }
-
-    @media (max-width: em(450)) {
-      width: 100%;
-    }
-  }
-
-  &--min {
-    padding: rem(20) rem(54);
-    font-weight: 400;
-
-    @media (max-width: em(767.98)) {
-      padding: rem(16) rem(44);
-    }
-  }
-
-  &--card {
-    padding: rem(14) rem(38);
-    font-size: rem(17);
-    font-weight: 600;
-  }
-
-  &--transparent {
-    color: var(--main-color);
-    background: transparent;
-    border: 1px solid var(--main-color);
-  }
 
   &:active {
     scale: 1.05;
@@ -65,5 +22,40 @@
 
   @include hover {
     opacity: 0.7;
+  }
+
+  &--min {
+    padding-block: rem(12);
+    padding-inline: rem(28);
+    font-size: rem(16);
+    line-height: 1.5;
+
+    @media (max-width: em(991.98)) {
+      padding-inline: rem(18);
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+
+    @include hover {
+      background-color: var(--color-purple);
+    }
+  }
+
+  &--hidden {
+    @media (max-width: em(410)) {
+      display: none;
+    }
+  }
+
+  &-white-border {
+    padding-block: rem(14);
+    background-color: transparent;
+    border: rem(2) solid var(--color-white);
+
+    @include hover {
+      background-color: var(--color-purple);
+    }
   }
 }

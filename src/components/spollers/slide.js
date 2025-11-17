@@ -1,4 +1,3 @@
-// вспомогательные модули плавного открытия и закрытия обЪекта
 export let _slideUp = (target, duration = 500) => {
   if (!target.classList.contains('_slide')) {
     target.classList.add('_slide');
