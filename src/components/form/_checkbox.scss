@@ -32,7 +32,8 @@
     left: 50%;
     width: 16px;
     height: 16px;
-    background: url('./icon-check_white.svg') center/contain no-repeat;
+    background: url('../assets/img/components/icon-check_white.svg')
+      center/contain no-repeat;
     translate: -50% -50%;
   }
 }
