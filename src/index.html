@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="description - Landing Page" />
-    <title>Start | Home</title>
+    <title>Relvise</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -32,44 +32,39 @@
       <header class="header" data-header data-right-padding>
         <div class="header__container">
           <a
-            href="/"
+            href="#"
             data-goto=".hero"
             class="header__logo logo"
             aria-label="home"
             title="home"
-            >Logo</a
+            >Relvise</a
           >
           <div class="header__overlay">
             <nav class="header__menu menu" data-header-menu>
               <ul class="menu__list">
                 <li class="menu__item">
-                  <a href="/" class="menu__link hover-link" data-goto=".hero"
+                  <a href="#" class="menu__link hover-link" data-goto=".hero"
                     >Home</a
                   >
                 </li>
                 <li class="menu__item">
                   <a
-                    href="/"
+                    href="#"
                     class="menu__link hover-link"
-                    data-goto=".partners"
-                    >Partners</a
+                    data-goto=".advantages"
+                    >Advantages</a
                   >
                 </li>
                 <li class="menu__item">
                   <a
-                    href="/"
+                    href="#"
                     class="menu__link hover-link"
-                    data-goto=".powerful"
-                    >Powerful</a
+                    data-goto=".practice"
+                    >Practice</a
                   >
                 </li>
                 <li class="menu__item">
-                  <a href="/" class="menu__link hover-link" data-goto=".speed"
-                    >Speed</a
-                  >
-                </li>
-                <li class="menu__item">
-                  <a href="/" class="menu__link hover-link" data-goto=".footer"
+                  <a href="#" class="menu__link hover-link" data-goto=".footer"
                     >Contacts</a
                   >
                 </li>
@@ -79,14 +74,8 @@
               <a
                 href="#"
                 data-popup-link="popup-login"
-                class="actions-header__button button button--min button--transparent button--hidden"
+                class="actions-header__button button"
                 >Log In</a
-              >
-              <a
-                href="#"
-                data-popup-link="popup-login"
-                class="actions-header__button button button--min"
-                >Join Now</a
               >
             </div>
           </div>
@@ -106,14 +95,51 @@
         </div>
       </header>
       <main class="page">
-        <section class="page__hero hero" aria-labelledby="hero-title">
+        <section
+          class="parrent-video-fon page__hero hero"
+          aria-labelledby="hero-title"
+        >
           <div class="hero__container">
-            <div class="hero__header-block header-block"></div>
+            <div class="hero__wrapper">
+              <div class="hero__header-block header-block header-block--hero">
+                <h1 class="header-block__title" id="hero-title">
+                  Finance and Consultancy Solution
+                </h1>
+                <div class="header-block__text">
+                  <p>
+                    We know how large objects will act, but things on a small
+                    scale.
+                  </p>
+                </div>
+              </div>
+              <div class="hero__buttons">
+                <button
+                  type="button"
+                  class="button hero__button"
+                  data-popup-link="popup"
+                >
+                  Get Quote Now
+                </button>
+                <button
+                  type="button"
+                  class="button button--transparent hero__button"
+                  data-popup-link="popup"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
           </div>
+          <video class="video-fon" autoplay muted loop>
+            <source type="video/mp4" src="assets/video/5.mp4" />
+          </video>
         </section>
+
+
       </main>
       <footer class="footer">
-        <div class="footer__container"></div>
+        <div class="footer__container">
+        </div>
       </footer>
 
       <div
@@ -202,7 +228,7 @@
                           Log In
                         </button>
                       </form>
-                      <a href="/" class="login__link">Forget password</a>
+                      <a href="#" class="login__link">Forget password</a>
                     </div>
                   </div>
                   <div class="login__card-side login__card-back">
@@ -285,11 +311,9 @@
             <div data-popup-content class="popup__content">
               <div class="video-player" data-video-player>
                 <video
-                  class="video-player__video video-player__video--small"
-                  src="./assets/video/1.mp4"
-                  width="470"
-                  height="390"
-                  poster="./assets/img/"
+                  class="video-player__video"
+                  src="./assets/video/5.mp4"
+                  poster="./assets/img/background_promo.webp"
                   data-video-player-video
                 ></video>
                 <div
@@ -325,7 +349,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </body>
 </html>

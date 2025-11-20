@@ -3,6 +3,7 @@
 // import pageNavigation from './modules/pageNavigation';
 // import headerFon from '../components/header/headerFon';
 // import Header from './../components/header/Header';
+// import CounterAnimationCollection from '../components/CounterAnimation/CounterAnimation';
 // import spollers from '../components/spollers/spollers';
 // import ScrollUpButton from '../components/scrollUpButton/ScrollUpButton';
 // import CountdownTimer from '../components/timer/CountdownTimer';
@@ -16,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // pageNavigation();
   // headerFon();
   // new Header();
+  // new CounterAnimationCollection();
   // spollers();
   // new ScrollUpButton();
   // scroller();
