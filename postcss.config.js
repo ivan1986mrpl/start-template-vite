@@ -5,8 +5,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
   plugins: [
-    //работают только при билде
-    isProduction && autoprefixer(),
     isProduction &&
       pxtorem({
         // Используем pxtorem как функцию с конфигурацией
@@ -17,5 +15,7 @@ export default {
         mediaQuery: true, // Преобразовывать px внутри media queries
         minPixelValue: 0, // Минимальное значение px для преобразования
       }),
+    //работают только при билде
+    isProduction && autoprefixer(),
   ].filter(Boolean), // удаляем `false`
 };
